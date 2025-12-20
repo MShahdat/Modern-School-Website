@@ -7,8 +7,8 @@ import 'slick-carousel/slick/slick-theme.css';
 const slides = [
   { src: 'https://images.pexels.com/photos/27549599/pexels-photo-27549599.jpeg', title: 'Library' },
   { src: 'https://images.unsplash.com/photo-1643391448949-735f48c6ef66?q=80&w=2031&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D', title: 'Admin Building' },
-  { src: 'https://images.unsplash.com/photo-1577985043696-8bd54d9f093f?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D', title: 'Play Ground' },
-  { src: 'https://images.pexels.com/photos/28448938/pexels-photo-28448938.jpeg', title: 'Classroom' },
+  { src: 'https://images.unsplash.com/photo-1627289834653-0f636fcb7031?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D', title: 'Play Ground' },
+  { src: 'https://images.unsplash.com/photo-1665780993894-ceb3a89bc5c5?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D', title: 'Classroom' },
 ];
 
 const NextArrow = ({ onClick }) => (

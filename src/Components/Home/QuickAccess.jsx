@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { FaUserGraduate, FaUsers } from "react-icons/fa6";
 import { LuNotebookPen } from "react-icons/lu";
 import { FaArrowRightLong } from "react-icons/fa6";
-
+import { ImManWoman } from "react-icons/im";
 const QuickAccess = () => {
   // 🔧 change this to whatever you want (e.g., 170, 180, 200, etc.)
   const DISC_SIZE = 120; // px
@@ -13,29 +13,29 @@ const QuickAccess = () => {
       title: "Students",
       number: 1400,
       to: "/student-list",
-      icon: <FaUserGraduate size={60} className="text-white" />,
+      icon: <FaUsers size={60} className="text-white" />,
     },
     {
       title: "Teachers",
       number: 40,
       to: "/our-teachers",
-      icon: (
-        <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2">
-          <path d="M3 22h18M6 22V9h12v13M4 9h16l-8-6-8 6Z" />
-        </svg>
-      ),
+      icon: <FaUserGraduate size={60} className="text-white" />,
     },
     {
       title: "Staffs",
       number: 10,
       to: "/our-staffs",
-      icon: <LuNotebookPen size={60} className="text-white" />,
+      icon: <ImManWoman size={60} className="text-white" />,
     },
     {
       title: "Classes",
       number: 30,
       to: "/",
-      icon: <FaUsers size={60} className="text-white" />,
+      icon: (
+        <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2">
+          <path d="M3 22h18M6 22V9h12v13M4 9h16l-8-6-8 6Z" />
+        </svg>
+      ),
     },
   ];
 

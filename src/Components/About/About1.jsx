@@ -1,5 +1,4 @@
 import React, { useEffect, useRef, useState } from "react";
-
 /* ---------- Reusable Counter ---------- */
 const CountUp = ({
   end,
@@ -50,10 +49,10 @@ const CountUp = ({
 
 const About1 = () => {
   const stats = [
-    { img: image14, number: 1400, label: "Students", suffix: "+" },
-    { img: image12, number: 40, label: "Teachers", suffix: "+" },
-    { img: image17, number: 10, label: "Staffs", suffix: "+" },
-    { img: image15, number: 30, label: "Classes", suffix: "+" },
+    { img: 'https://images.unsplash.com/photo-1695080188241-8f3224874d86?q=80&w=1171&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D', number: 1400, label: "Students", suffix: "+" },
+    { img: 'https://plus.unsplash.com/premium_photo-1663099329263-42c336fd2068?q=80&w=1142&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D', number: 40, label: "Teachers", suffix: "+" },
+    { img: 'https://plus.unsplash.com/premium_photo-1683880731561-f0cceb0ad405?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D', number: 10, label: "Staffs", suffix: "+" },
+    { img: 'https://plus.unsplash.com/premium_photo-1663054510163-c19544ba7dfe?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D', number: 30, label: "Classes", suffix: "+" },
   ];
 
   // Start CountUp when cards enter the viewport (works on refresh and when navigating to the page)
