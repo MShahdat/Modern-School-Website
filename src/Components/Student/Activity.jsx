@@ -89,11 +89,11 @@ const Activity = () => {
   return (
     <div className="bg-white dark:bg-black/80">
       <div className="max-w-7xl px-4 py-8 mx-auto">
-      <h2 className="text-2xl md:text-4xl dark:text-white/90 font-bold text-center text-blue-900 mb-4">
+      <h2 className="text-3xl md:text-4xl dark:text-white/90 font-bold text-center text-blue-900 mb-4">
         Daily Activity
       </h2>
       <hr className="border-t border-2 border-black/20 dark:border-white/20  mt-2 mb-0" />
-      <div className="px-4 py-12">
+      <div className="px-4 py-8">
         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
           {schoolData?.daily_activities.map((item, idx) => {
             const bg = BG_COLORS[idx % BG_COLORS.length]; // 15 colors, used serially

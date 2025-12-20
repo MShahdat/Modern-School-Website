@@ -80,7 +80,7 @@ const NoticeDetails = () => {
     // 🔵 shimmer effect while loading
     return (
       <div className="p-8 bg-gray-50 xl:px-30">
-        <h3 className="text-4xl font-bold text-center text-cyan-800 mb-4">
+        <h3 className="text-4xl font-bold text-center text-blue-800 mb-4">
           Details Notice
         </h3>
         <hr className="border-t border-2 border-gray-500 mt-2 mb-12" />
@@ -121,10 +121,10 @@ const NoticeDetails = () => {
   return (
     <div className="bg-gray-50 dark:bg-black/80">
       <div className="p-8 max-w-7xl mx-auto ">
-      <h3 className="text-2xl dark:text-white/90 md:text-4xl font-bold text-center text-blue-800 mb-4">
+      <h3 className="text-3xl dark:text-white/90 md:text-4xl font-bold text-center text-blue-800 mb-4">
         Details Notice
       </h3>
-      <hr className="border-t border-2 border-black/20 dark:border-white/20 mt-2 mb-12" />
+      <hr className="border-t border-2 border-black/20 dark:border-white/20 mt-2 mb-8" />
       <div className="border border-blue-200 rounded-lg shadow-sm p-6 bg-white">
         <h1 className="text-2xl font-bold text-blue-800">{noticeItem.title}</h1>
         <p className="font-bold text-black/70 mt-2">

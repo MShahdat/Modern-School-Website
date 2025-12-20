@@ -214,7 +214,7 @@ const getThemeIcon = () => {
           <div className='flex items-center gap-1'>
             <div className="dropdown dropdown-end">
               <div tabIndex={0} role="button" className="btn m-0 min-h-0 h-[32px] bg-white px-2 text-[15px] text-black">{getThemeIcon()}Theme</div>
-              <ul tabIndex="-1" className="dropdown-content menu bg-base-100 text-[14px] rounded-box z-1 w-44 p-2 shadow-sm">
+              <ul tabIndex="-1" className="dropdown-content menu text-[14px] rounded-box z-1 w-36 p-2 bg-black shadow">
                 {
                   option.map((item, idx) => (
                     <li key={idx} className=''>

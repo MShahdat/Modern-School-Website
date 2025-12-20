@@ -136,16 +136,16 @@ const Schedule = () => {
   return (
     <div className="bg-gray-50 dark:bg-black/80">
       <div className="max-w-7xl mx-auto p-8">
-      <h3 className="text-2xl dark:text-white/90 md:text-4xl font-bold text-center text-blue-900 mb-4">
+      <h3 className="text-3xl dark:text-white/90 md:text-4xl font-bold text-center text-blue-900 mb-4">
         Exam Schedule
       </h3>
-      <hr className="border-t border-2 border-black/20 dark:border-white/20  mt-2 mb-12" />
+      <hr className="border-t border-2 border-black/20 dark:border-white/20  mt-2 mb-8" />
 
       <div className="sm:px-10 md:px-20 lg:px-30 xl:px-40">
         {schoolData?.exam_schedules.map((cal, index) => (
           <div
             key={index}
-            className="border border-blue-200 rounded-lg shadow-sm p-12 mb-6 bg-white"
+            className="border border-blue-200 rounded-lg shadow-sm py-8 px-4 mb-6 bg-white"
           >
             <h2 className="text-xl font-bold text-blue-800">{cal.title}</h2>
 
@@ -153,7 +153,7 @@ const Schedule = () => {
               Date: <span className="font-normal">{(cal.publish_date)}</span>
             </p>
 
-            <div className="flex flex-wrap gap-8 mt-8">
+            <div className="flex flex-wrap gap-4 md:gap-8 mt-8">
               <button
                 type="button"
                 onClick={() => handleDownload(cal.file, `${cal.title}.pdf`)}
@@ -167,7 +167,7 @@ const Schedule = () => {
                 onClick={() => handleRead(cal.file, cal.title)}
                 className="bg-indigo-800 font-bold text-white px-4 py-2 rounded shadow hover:bg-indigo-900"
               >
-                Read Calendar
+                Open Schedule
               </button>
             </div>
           </div>

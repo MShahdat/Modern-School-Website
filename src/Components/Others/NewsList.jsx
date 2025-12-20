@@ -106,7 +106,7 @@ const NewsList = () => {
     <div className="bg-blue-950 ">
       <div className="p-8 xl:px-10 max-w-7xl mx-auto">
       <div className="">
-        <h3 className="text-center text-4xl font-bold text-white mb-4">
+        <h3 className="text-center text-3xl md:text-4xl font-bold text-white mb-4">
           Latest News
         </h3>
         {/* Optional manual refresh button:
@@ -119,7 +119,7 @@ const NewsList = () => {
         */}
       </div>
 
-      <hr className="border-t border-2 border-gray-500 mt-2 mb-12" />
+      <hr className="border-t border-2 border-gray-500 mt-2 mb-8" />
 
       <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
         {schoolData?.news?.map((news) => (

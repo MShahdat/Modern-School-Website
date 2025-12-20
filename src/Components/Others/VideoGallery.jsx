@@ -107,10 +107,10 @@ const VideoGallery = () => {
   return (
     <div className="bg-blue-50 dark:bg-black/80">
       <div className="max-w-7xl px-4 py-8 mx-auto">
-        <h3 className="text-2xl md:text-4xl font-bold text-center text-blue-900 dark:text-white/90 mb-4">
+        <h3 className="text-3xl md:text-4xl font-bold text-center text-blue-900 dark:text-white/90 mb-4">
           Our Video Gallery
         </h3>
-        <hr className="border-t border-2 border-black/20 dark:border-white/20 mt-2 mb-12" />
+        <hr className="border-t border-2 border-black/20 dark:border-white/20 mt-2 mb-8" />
 
         {/* Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">

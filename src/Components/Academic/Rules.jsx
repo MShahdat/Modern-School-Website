@@ -65,13 +65,13 @@ const Rules = () => {
     <div className='bg-white/95 dark:bg-black/80'>
       <div className='px-4 py-8 mx-auto max-w-6xl'>
       {/* heading unchanged */}
-      <h2 className='text-2xl md:text-4xl font-bold text-center mb-4 text-blue-900 dark:text-white/90'>
+      <h2 className='text-3xl md:text-4xl font-bold text-center mb-4 text-blue-900 dark:text-white/90'>
         Academic Rules & Regulations
       </h2>
 
       <hr className='border-t border-2 border-black/25 dark:border-white/20 mt-2 mb-0' />
 
-      <div className='px-8 py-12'>
+      <div className='px-4 py-8'>
         {/* ⬇️ CHANGED: render ALL entries */}
         {schoolData?.academic_rules.map((it, idx) => (
           <div key={it?.id ?? idx} className="mb-8">

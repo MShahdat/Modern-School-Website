@@ -115,7 +115,7 @@ const Achieve = () => {
   return (
     <div className="bg-blue-950 text-white">
       <div className=" px-4 py-16 max-w-7xl mx-auto">
-        <h3 className="text-4xl font-bold text-center mb-4">
+        <h3 className="text-3xl md:text-4xl font-bold text-center mb-4">
           Our Achievements
         </h3>
       <hr className="border-t border-2 border-gray-300 mt-2 mb-16" />

@@ -125,7 +125,7 @@ const Governing = () => {
       <h3 className="text-2xl md:text-3xl font-bold dark:text-white/90 text-blue-900 text-center mb-4">
         Governing Body (2025 - 2026)
       </h3>
-      <hr className="border-t border-2 border-black/20 dark:border-white/20 mt-2 mb-12" />
+      <hr className="border-t border-2 border-black/20 dark:border-white/20 mt-2 mb-8" />
 
       <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-0 md:gap-2">
         {members.map((com, idx) => (

@@ -113,11 +113,11 @@ const TeacherDetails = () => {
   return (
     <div className='bg-gray-50 dark:bg-black/80'>
       <div className="max-w-7xl mx-auto min-h-screen p-8">
-      <h3 className="text-2xl dark:text-white/90 md:text-4xl font-bold text-blue-900 text-center mb-4">
+      <h3 className="text-3xl dark:text-white/90 md:text-4xl font-bold text-blue-900 text-center mb-4">
         Our Teacher Details
       </h3>
       <hr className="border-t border-2 border-black/20 dark:border-white/20 mt-2 mb-12" />
-      <div className="max-w-6xl mx-auto bg-white rounded-lg shadow-lg p-8">
+      <div className="max-w-6xl mx-auto bg-white rounded-lg shadow-lg px-4 py-8">
         <div className="flex flex-col md:flex-row gap-10">
           {/* Left Profile */}
           <div className="flex flex-col items-center mt-8 md:w-1/3">

@@ -110,10 +110,10 @@ const EventsDetails = () => {
   return (
     <div className="bg-white dark:bg-black/80">
       <div className="p-8 max-w-7xl mx-auto">
-      <h3 className="text-2xl dark:text-white/90 md:text-4xl font-bold text-center text-blue-800 mb-4">
+      <h3 className="text-3xl dark:text-white/90 md:text-4xl font-bold text-center text-blue-800 mb-4">
         Event Details
       </h3>
-      <hr className="border-t border-2 border-black/20 dark:border-white/20 mt-2 mb-12" />
+      <hr className="border-t border-2 border-black/20 dark:border-white/20 mt-2 mb-8" />
 
       <div className="px-6 py-4 border border-indigo-200 rounded-xl shadow-lg overflow-hidden bg-white">
         {gallery.length > 5 && !showAll && (

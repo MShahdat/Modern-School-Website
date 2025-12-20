@@ -120,10 +120,10 @@ const TuitionFee = () => {
   return (
     <div className="bg-white dark:bg-black/80">
       <div className="max-w-7xl px-4 py-8 mx-auto">
-      <h3 className="text-2xl dark:text-white/90 md:text-4xl font-bold text-blue-900 text-center mb-4">
+      <h3 className="text-3xl dark:text-white/90 md:text-4xl font-bold text-blue-900 text-center mb-4">
         {feeEntry?.title || "Tuition Fees"}
       </h3>
-      <hr className="border-t border-2 border-black/20 dark:border-white/20 mt-2 mb-12" />
+      <hr className="border-t border-2 border-black/20 dark:border-white/20 mt-2 mb-8" />
       <div className="overflow-x-auto">
         <table className="min-w-full border border-gray-300 bg-white rounded-lg shadow-lg mb-8">
           <thead className="bg-blue-950 text-white text-center">

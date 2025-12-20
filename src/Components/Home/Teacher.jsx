@@ -45,7 +45,7 @@ const Teacher = () => {
     const placeholders = Array.from({ length: 6 });
     return (
       <div className="bg-blue-50 px-4 py-8 mx-auto">
-        <h3 className="text-4xl font-bold text-blue-900 text-center mb-4">Our Teachers</h3>
+        <h3 className="text-3xl md:text-4xl font-bold text-blue-900 text-center mb-4">Our Teachers</h3>
         <hr className="border-t border-2 border-gray-500 mt-2 mb-12" />
 
         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-10 md:gap-6 mb-8">
@@ -78,7 +78,7 @@ const Teacher = () => {
   return (
     <div className='bg-blue-950'>
       <div className=" px-4 py-16 mx-auto max-w-7xl">
-      <h3 className="text-4xl font-bold text-white text-center mb-4">Our Teachers</h3>
+      <h3 className="text-3xl md:text-4xl font-bold text-white text-center mb-4">Our Teachers</h3>
       <hr className="border-t border-2 border-gray-500 mt-2 mb-16" />
 
       <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-10 md:gap-6 mb-8">

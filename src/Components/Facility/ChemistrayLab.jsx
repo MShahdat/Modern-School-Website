@@ -91,16 +91,16 @@ const ChemistryLab = () => {
     <section className="w-full bg-white dark:bg-black/80">
       {/* Section heading */}
       <div className="max-w-6xl mx-auto px-4 py-10">
-        <h2 className='text-2xl md:text-4xl font-bold text-center dark:text-white/90 text-cyan-950 mb-4'>Chemistry Lab</h2>
+        <h2 className='text-3xl md:text-4xl font-bold text-center dark:text-white/90 text-cyan-950 mb-4'>Chemistry Lab</h2>
         <hr className='border-t border-2 border-black/20 dark:border-white/20 mt-2 mb-8' />
 
         {/* Two-column content */}
         <div>
           {schoolData?.chemistry_lab_items?.map((chemistry) => (
             <div key={chemistry.id ?? chemistry.media ?? Math.random()}>
-              <div className="mt-16 grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-10 items-start">
+              <div className="mt-8 md:mt-12 grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-10 items-start">
                 {/* Right: text */}
-                <div className="md:col-span-7 px-2">
+                <div className="md:col-span-7 px-4">
                   {/* (kept) dangerouslySetInnerHTML */}
                   <p
                     className="mt-0 text-[16px] md:text-[17px] leading-8 tracking-wide dark:text-white/90 text-gray-700 text-justify"

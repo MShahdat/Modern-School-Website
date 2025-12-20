@@ -96,7 +96,7 @@ const NewsDetails = () => {
       <h3 className="text-2xl dark:text-white/90 md:text-4xl font-bold text-center text-indigo-800 mb-4">
         News Details
       </h3>
-      <hr className="border-t border-2 border-black/20 dark:border-white/20 mt-2 mb-12" />
+      <hr className="border-t border-2 border-black/20 dark:border-white/20 mt-2 mb-8" />
 
       {/* ✅ Shimmer wraps content, shows skeleton when loading */}
       <Shimmer

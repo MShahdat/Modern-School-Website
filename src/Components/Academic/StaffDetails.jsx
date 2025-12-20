@@ -113,10 +113,10 @@ const StaffDetails = () => {
   return (
     <div className='bg-gray-50 dark:bg-black/80'>
       <div className="max-w-7xl mx-auto min-h-screen p-8">
-      <h3 className="text-2xl md:text-4xl font-bold text-blue-900 text-center dark:text-white/90 mb-4">Our Staffs Details</h3>
-      <hr className="border-t border-2 border-black/20 dark:border-white/20 mt-2 mb-12" />
+      <h3 className="text-3xl md:text-4xl font-bold text-blue-900 text-center dark:text-white/90 mb-4">Our Staffs Details</h3>
+      <hr className="border-t border-2 border-black/20 dark:border-white/20 mt-2 mb-8" />
 
-      <div className="max-w-6xl mx-auto bg-white rounded-lg shadow-lg p-8">
+      <div className="max-w-6xl mx-auto bg-white rounded-lg shadow-lg px-4 py-8">
         <div className="flex flex-col md:flex-row gap-10">
           {/* Left Profile */}
           <div className="flex flex-col items-center mt-8 md:w-1/3">
@@ -127,11 +127,11 @@ const StaffDetails = () => {
             />
             {/* 🔵 allow HTML in name/role if API sends markup (no design change) */}
             <h2
-              className="text-2xl font-bold mt-4 text-center uppercase text-blue-950"
+              className=" text-xl md:text-2xl font-bold mt-4 text-center uppercase text-blue-950"
               dangerouslySetInnerHTML={{ __html: String(staff.name ?? '') }}
             />
             <p
-              className="text-gray-600 font-semibold uppercase"
+              className="text-gray-600 text-[14px] md:text-[16px] font-semibold uppercase"
               dangerouslySetInnerHTML={{ __html: String(staff.role ?? '') }}
             />
           </div>

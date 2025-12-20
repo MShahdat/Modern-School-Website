@@ -190,7 +190,7 @@ const Uniform = () => {
                       alt={s.label}
                       className="w-full h-full object-cover border-4 border-white shadow-lg"
                     />
-                    <p className="text-center font-semibold mt-3">{s.label}</p>
+                    <p className="text-center text-black font-semibold mt-3">{s.label}</p>
                   </div>
                 ))}
               </div>

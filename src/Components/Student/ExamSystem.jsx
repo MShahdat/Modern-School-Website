@@ -67,7 +67,7 @@ const ExamSystem = () => {
         <div className='bg-white/95 dark:bg-black/80'>
             <div className='max-w-7xl px-4 py-8 xl:px-20 mx-auto'>
             {/* heading unchanged */}
-            <h2 className='text-2xl dark:text-white/90 md:text-4xl font-bold text-center mb-4 text-blue-900'>
+            <h2 className='text-3xl dark:text-white/90 md:text-4xl font-bold text-center mb-4 text-blue-900'>
                 Exam Systems
             </h2>
 

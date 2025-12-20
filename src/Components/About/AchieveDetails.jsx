@@ -113,12 +113,12 @@ const AchieveDetails = () => {
   return (
     <div className="bg-gray-50 dark:bg-black/80">
       <div className="p-8 max-w-7xl mx-auto">
-      <h3 className="text-2xl md:text-4xl font-bold text-center text-blue-900 mb-4 dark:text-white/90">
+      <h3 className="text-3xl md:text-4xl font-bold text-center text-blue-900 mb-4 dark:text-white/90">
         Details Achievements
       </h3>
-      <hr className="border-t border-2 border-black/20 dark:border-white/20 mt-2 mb-12" />
+      <hr className="border-t border-2 border-black/20 dark:border-white/20 mt-2 mb-8" />
 
-      <div className="border border-blue-200 rounded-lg shadow-sm p-6 bg-white">
+      <div className="border border-blue-200 rounded-lg shadow-sm p-4 bg-white">
         <h1 className="text-2xl font-bold text-blue-800">{noticeItem.title}</h1>
 
         {noticeItem.cover_image ? (

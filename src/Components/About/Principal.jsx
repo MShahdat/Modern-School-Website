@@ -75,11 +75,11 @@ const Principal = () => {
   return (
     <div className='bg-blue-50 dark:bg-black/80'>
       <div className="max-w-7xl px-4 py-8 xl:px-20 mx-auto">
-      <h2 className="text-2xl md:text-4xl font-bold text-center dark:text-white/90 text-blue-900 mb-4">
+      <h2 className="text-3xl md:text-4xl font-bold text-center dark:text-white/90 text-blue-900 mb-4">
         Message from Principal
       </h2>
       <hr className="border-t border-2 border-black/20 dark:border-white/20 mt-2 mb-12" />
-      <div className="px-8 py-8">
+      <div className="px-4 py-8">
         <div className="flex flex-col items-center justify-center">
           <img
             className="w-100 h-80 object-fill rounded-xl shadow-sm"

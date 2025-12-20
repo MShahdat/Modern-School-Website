@@ -65,7 +65,7 @@ const Test = () => {
     <div className='bg-white/95 dark:bg-black/80'>
       <div className='max-w-6xl px-4 py-8 mx-auto'>
       {/* heading unchanged */}
-      <h2 className='text-2xl md:text-4xl font-bold text-center mb-4 text-blue-900 dark:text-white/90'>
+      <h2 className='text-3xl md:text-4xl font-bold text-center mb-4 text-blue-900 dark:text-white/90'>
         Admission Test
       </h2>
 

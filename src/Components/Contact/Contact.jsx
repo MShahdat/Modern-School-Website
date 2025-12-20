@@ -87,10 +87,10 @@ const Contact = () => {
   return (
     <div className="bg-gradient-to-b from-blue-950 via-indigo-950 to-slate-900">
       <div className=" px-8 py-8  mx-auto min-h-screen max-w-7xl">
-      <h2 className="text-2xl md:text-4xl text-white font-bold text-center mb-4">
+      <h2 className="text-3xl md:text-4xl text-white font-bold text-center mb-4">
         Contact
       </h2>
-      <hr className="border-t border-2 border-slate-600 mt-2 mb-12" />
+      <hr className="border-t border-2 border-slate-600 mt-2 mb-8" />
 
       {/* Cards */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 py-4">

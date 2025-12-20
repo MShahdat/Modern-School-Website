@@ -212,7 +212,7 @@ const Footer = () => {
           </div>
         </div>
       </div>
-      <div className='mt-8'>
+      <div className='mt-8 px-4'>
         <div className='border-1 border-white/20'></div>
         <div className='py-2.5 text-center text-[14px]'>
           Copyright ©2025 All rights reserved. This template is made by Shahdat

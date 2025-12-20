@@ -43,7 +43,7 @@ const MissionVision = () => {
     // 🔵 SHIMMER: same structure (wrapper + heading + hr + two titled paragraphs)
     return (
       <div className='px-4 py-8 xl:px-20 mx-auto'>
-        <h2 className='text-4xl font-bold text-center mb-4 text-cyan-900'>Mission Vision</h2>
+        <h2 className='text-4xl font-bold text-center mb-4 text-blue-900'>Mission Vision</h2>
         <hr className='border-t border-2 border-gray-500 mt-2 mb-0' />
 
         <div className='px-8 py-12'>
@@ -82,10 +82,10 @@ const MissionVision = () => {
   return (
     <div className='bg-white dark:bg-black/80'>
       <div className='max-w-7xl px-4 py-8 xl:px-20 mx-auto'>
-      <h2 className='text-4xl dark:text-white/90 font-bold text-center mb-4 text-blue-900'>Mission Vision</h2>
+      <h2 className='text-3xl md:text-4xl dark:text-white/90 font-bold text-center mb-4 text-blue-900'>Mission Vision</h2>
       <hr className='border-t border-2 border-black/20 dark:border-white/10 mt-2 mb-0' />
 
-      <div className='px-8 py-12'>
+      <div className='px-4 py-8'>
         <div>
           <h3 className='text-2xl font-bold text-blue-950 dark:text-white/90 mb-3 underline'>Mission</h3>
           <p

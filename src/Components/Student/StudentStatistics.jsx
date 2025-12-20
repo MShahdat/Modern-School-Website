@@ -98,7 +98,7 @@ const StudentStatistics = () => {
     <div className='text-white bg-white dark:bg-black/80'>
       <div className=' px-4 py-8 mx-auto max-w-7xl'>
 
-      <h2 className='text-4xl font-bold text-center dark:text-white/90 mb-4 text-blue-900'>
+      <h2 className='text-3xl md:text-4xl font-bold text-center dark:text-white/90 mb-4 text-blue-900'>
         Student Statistics
       </h2>
       <hr className='border-t border-2 border-black/10 dark:border-white/20 mt-2 mb-12' />

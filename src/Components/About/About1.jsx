@@ -84,7 +84,7 @@ const About1 = () => {
   return (
     <div className="bg-blue-950 text-white ">
       <div className="max-w-7xl px-4 py-12 xl:px-30 mx-auto">
-      <h2 className="text-4xl font-bold text-center mb-4 text-white">
+      <h2 className="text-3xl md:text-4xl font-bold text-center mb-4 text-white">
         Statistics
       </h2>
       <hr className="border-t border-2 border-gray-200 mt-2 mb-16" />

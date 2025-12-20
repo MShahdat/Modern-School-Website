@@ -75,7 +75,7 @@ const Photo = () => {
   // Keep structure/design as-is. No loading or error UI added to avoid layout changes.
   return (
     <div className="bg-blue-50 px-4 py-8 xl:px-8 mx-auto rounded-xl max-w-7xl">
-      <h3 className="text-4xl font-bold text-center text-blue-900 mb-4">
+      <h3 className="text-3xl md:text-4xl font-bold text-center text-blue-900 mb-4">
         Our Photo Gallery
       </h3>
       <hr className="border-t border-2 border-gray-500 mt-2 mb-12" />
