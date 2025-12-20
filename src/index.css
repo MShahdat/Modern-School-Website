@@ -1,0 +1,89 @@
+@import url('https://fonts.googleapis.com/css2?family=Lugrasimo&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playwrite+Deutschland+Grundschrift&family=Marko+One&family=Caudex:wght@400;700&display=swap');
+
+
+@import "tailwindcss";
+@plugin "daisyui";
+@custom-variant dark (&:where(.dark, .dark *));
+
+.font-caudex {
+	font-family: 'Caudex', serif;
+}
+.font-marko-one {
+	font-family: 'Marko One', serif;
+}
+.font-playwrite-grundschrift {
+	font-family: 'Playwrite Deutschland Grundschrift', cursive;
+}
+
+.font-lugrasimo {
+	font-family: 'Lugrasimo', cursive;
+}
+@keyframes gradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.animate-gradient {
+  animation: gradient 5s ease infinite;
+}
+
+/* Keep spacing tidy */
+.custom-dots li { margin: 0; }
+
+/* Default: inactive = gray-300 */
+.custom-dots li .bubble {
+  background-color: rgb(161, 161, 163); /* Tailwind gray-300 */
+}
+
+/* Active: white */
+.custom-dots li.slick-active .bubble {
+  background-color: rgb(255 255 255); /* Tailwind white */
+}
+
+/* Optional: subtle fade-in */
+.custom-dots { transition: opacity 250ms ease; }
+
+/* Remove default slick black dot */
+.slick-dots li button:before {
+  content: none !important;
+}
+
+/* Control bubble size */
+.custom-dots li button {
+  width: 8px !important;   /* ~w-3 */
+  height: 8px !important;  /* ~h-3 */
+  padding: 0 !important;
+}
+
+
+/* paragraphs */
+.richtext p {
+  margin: 0 0 1rem;
+  text-align: justify;            /* justify ONLY paragraphs */
+  line-height: 1.65;
+}
+
+/* lists */
+.richtext :where(ol, ul) {
+  margin: 0 0 1rem;
+  padding-left: 1.75rem;          /* indent like native HTML */
+  list-style-position: outside;   /* markers outside */
+}
+
+/* default list types if API omits inline styles */
+.richtext ol { list-style-type: decimal; }
+.richtext ul { list-style-type: disc; }
+
+/* list items */
+.richtext li { margin: 0.25rem 0; }
+
+/* honor API inline list-style-type exactly */
+.richtext ol[style*="lower-alpha"] { list-style-type: lower-alpha; }
+.richtext ol[style*="upper-alpha"] { list-style-type: upper-alpha; }
+.richtext ol[style*="lower-roman"] { list-style-type: lower-roman; }
+.richtext ol[style*="upper-roman"] { list-style-type: upper-roman; }
+
+/* optional: nested lists look right */
+.richtext li > :where(ol, ul) { margin-top: 0.25rem; }
