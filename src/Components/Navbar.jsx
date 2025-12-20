@@ -217,7 +217,7 @@ const getThemeIcon = () => {
               <ul tabIndex="-1" className="dropdown-content menu text-[14px] rounded-box z-1 w-36 p-2 bg-black shadow">
                 {
                   option.map((item, idx) => (
-                    <li key={idx} className=''>
+                    <li key={idx} className='text-white'>
                       <a onClick={() => {
                         setTheme(item.name)
                         console.log(item.name)
