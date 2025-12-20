@@ -155,7 +155,7 @@ const Hero1 = () => {
                             src={leader?.photo}
                             alt={leader?.name}
                             className="w-full h-full object-cover hero-zoom-img"
-                            loading="lazy"
+                            
                           />
                         </div>
                         <div className="text-center lg:text-left">

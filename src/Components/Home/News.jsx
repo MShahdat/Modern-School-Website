@@ -14,9 +14,23 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-/* Optional: simple custom arrows (click areas inherit slick styles) */
-const NextArrow = (props) => <div {...props} className="slick-arrow slick-next !right-2 z-10" />;
-const PrevArrow = (props) => <div {...props} className="slick-arrow slick-prev !left-2 z-10" />;
+// Arrow buttons (unchanged)
+const ArrowBtn = ({ direction = "prev", onClick, className = "", style = {} }) => {
+  const sideStyle =
+    direction === "prev" ? { left: "-12px", right: "auto" } : { right: "-12px", left: "auto" };
+
+  return (
+    <button
+      type="button"
+      aria-label={direction === "prev" ? "Previous" : "Next"}
+      onClick={onClick}
+      className={`${className} !grid place-items-center !w-12 !h-12 !rounded-md !text-white !shadow-md`}
+      style={{ ...style, ...sideStyle, display: "grid", zIndex: 50, position: "absolute" }}
+    />
+  );
+};
+const PrevArrow = (props) => <ArrowBtn direction="prev" {...props} />;
+const NextArrow = (props) => <ArrowBtn direction="next" {...props} />;
 
 const News = () => {
   // 🔵 init from cache so revisits don't show loader/refetch

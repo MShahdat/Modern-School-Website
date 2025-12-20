@@ -12,10 +12,23 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-/* Simple arrows */
-const NextArrow = (props) => <div {...props} className="slick-arrow slick-next !right-2 z-10" />;
-const PrevArrow = (props) => <div {...props} className="slick-arrow slick-prev !left-2 z-10" />;
+// Arrow buttons (unchanged)
+const ArrowBtn = ({ direction = "prev", onClick, className = "", style = {} }) => {
+  const sideStyle =
+    direction === "prev" ? { left: "-12px", right: "auto" } : { right: "-12px", left: "auto" };
 
+  return (
+    <button
+      type="button"
+      aria-label={direction === "prev" ? "Previous" : "Next"}
+      onClick={onClick}
+      className={`${className} !grid place-items-center !w-12 !h-12 !rounded-md !text-white !shadow-md`}
+      style={{ ...style, ...sideStyle, display: "grid", zIndex: 50, position: "absolute" }}
+    />
+  );
+};
+const PrevArrow = (props) => <ArrowBtn direction="prev" {...props} />;
+const NextArrow = (props) => <ArrowBtn direction="next" {...props} />;
 
 const Achieve = () => {
   const [schoolData, setSchoolData] = useState(cachedSchoolData);
@@ -92,6 +105,7 @@ const Achieve = () => {
     autoplay: true,
     autoplaySpeed: 4500,
     pauseOnHover: false,
+    arrow: false,
     nextArrow: <NextArrow />,
     prevArrow: <PrevArrow />,
     fade: false, // keep slide; can set true if you prefer fade
