@@ -5,16 +5,17 @@ import Footer from './Components/Footer';
 import { Outlet } from 'react-router';
 import Top from './scroll/Top';
 import ScrollToTop from './scroll/ScrollTop';
+import Provider from './provider';
 const App = () => {
   return (
-    <div>
+    <Provider>
       <Header></Header>
       <Navbar></Navbar>
       <Outlet></Outlet>
       <Footer></Footer>
       <Top></Top>
       <ScrollToTop></ScrollToTop>
-    </div>
+    </Provider>
   );
 };
 

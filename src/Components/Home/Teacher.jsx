@@ -29,7 +29,6 @@ const Teacher = () => {
 
   const teachers = schoolData?.teachers ?? [];
 
-  // (kept your IO hook structure; no design change)
   useEffect(() => {
     if (!teachers.length) return;
 
@@ -41,7 +40,6 @@ const Teacher = () => {
   }, [teachers.length]);
 
   if (loading) {
-    // 🔵 SHIMMER skeleton
     const placeholders = Array.from({ length: 6 });
     return (
       <div className="bg-blue-50 px-4 py-8 mx-auto">
@@ -55,9 +53,7 @@ const Teacher = () => {
               className="bg-white rounded-2xl shadow-2xl pl-3 pr-1 py-4"
             >
               <div className="flex gap-4">
-                {/* image shimmer */}
                 <div className="h-36 w-40 md:h-30 md:w-30 rounded-xl bg-gray-200 animate-pulse" />
-                {/* text shimmer */}
                 <div className="flex-1 mt-0 space-y-3">
                   <div className="h-5 w-3/4 bg-gray-200 rounded animate-pulse" />
                   <div className="h-4 w-1/2 bg-gray-200 rounded animate-pulse" />
@@ -97,7 +93,6 @@ const Teacher = () => {
               />
               <div className="mt-0">
                 <p className="text-xl text-blue-900 font-bold uppercase">{teacher.name}</p>
-                {/* ✅ role comes from designation.title per your API */}
                 <p className="font-semibold mt-2 text-gray-600">{teacher.designation?.title}</p>
                 <p className="font-semibold mt-2 text-gray-600">+88{teacher.phone}</p>
               </div>
@@ -105,7 +100,7 @@ const Teacher = () => {
           </Link>
         ))}
       </div>
-      {/* Back Button */}
+
       {teachers.length > 6 && (
         <div className="flex justify-end mt-6">
           <Link

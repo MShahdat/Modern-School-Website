@@ -2,7 +2,6 @@
 import React, { useState, useEffect } from 'react';
 import { Api_Base_Url } from '../../Config/Api';
 
-/* per-tab session cache */
 let cachedSchoolData = null;
 let schoolDataPromise = null;
 
@@ -64,7 +63,6 @@ const Rule = () => {
   return (
     <div className='bg-white/95 dark:bg-black/80'>
       <div className='max-w-7xl px-4 py-8 xl:px-20 mx-auto'>
-      {/* heading unchanged */}
       <h2 className='text-3xl dark:text-white/90 md:text-4xl font-bold text-center mb-4 text-blue-900'>
         Rules & Regulations
       </h2>
@@ -72,10 +70,8 @@ const Rule = () => {
       <hr className='border-t border-2 border-black/20 dark:border-white/20 mt-2 mb-0' />
 
       <div className='px-4 py-8'>
-        {/* ⬇️ CHANGED: render ALL entries */}
         {schoolData?.rules_and_regulations.map((it, idx) => (
           <div key={it?.id ?? idx} className="mb-8">
-            {/* optional sub-title if your API provides it */}
             {it?.title ? (
               <div
                 className="text-xl dark:text-white/90 md:text-2xl font-semibold mb-3 text-blue-950"

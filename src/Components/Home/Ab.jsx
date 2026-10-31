@@ -13,12 +13,11 @@ const TRANSITION_MS = 2000;
 const INTERVAL_MS = 3000;
 
 const Ab = () => {
-  // ---- data hooks
+
   const [schoolData, setSchoolData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  // ---- slider hooks (MUST be before any early return)
   const extendedSlides = [slides[slides.length - 1], ...slides, slides[0]];
   const [index, setIndex] = useState(1);
   const [transitionMs, setTransitionMs] = useState(TRANSITION_MS);
@@ -83,7 +82,6 @@ const Ab = () => {
   const next = () => setIndex((i) => i + 1);
   const realActive = (index - 1 + slides.length) % slides.length;
 
-  // ---- early returns are now AFTER all hooks
   if (loading) {
     return <div className="text-center py-4 text-gray-500">Loading school information...</div>;
   }
@@ -95,7 +93,7 @@ const Ab = () => {
     <section className="w-full bg-gray-50 dark:bg-black dark:text-white py-8">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14 items-center">
-          {/* Left */}
+
           <div>
             <h2 className=" text-3xl dark:text-white sm:text-4xl font-semibold text-slate-800">
               About Dania University Collage
@@ -115,7 +113,6 @@ const Ab = () => {
             </a>
           </div>
 
-          {/* Right: slider */}
           <div
             className="bg-white dark:text-black/80 rounded-3xl shadow-xl p-8 relative flex items-center justify-center min-h-[420px]"
             onMouseEnter={stopAuto}

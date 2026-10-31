@@ -72,10 +72,9 @@ const Apply = () => {
       <hr className='border-t border-2 border-black/25 dark:border-white/20 mt-2 mb-0' />
 
       <div className='px-4 py-8'>
-        {/* ⬇️ CHANGED: render ALL entries */}
+
         {schoolData?.how_to_apply.map((it, idx) => (
           <div key={it?.id ?? idx} className="mb-8">
-            {/* optional sub-title if your API provides it */}
             {it?.title ? (
               <div
                 className="text-xl md:text-2xl font-semibold mb-3 text-blue-950 dark:text-white/90"

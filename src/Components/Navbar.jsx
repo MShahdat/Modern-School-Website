@@ -297,7 +297,7 @@ const getThemeIcon = () => {
   );
 };
 
-// Dropdown for Mobile, only one open at a time, WITH HOVER!
+
 const MobileMenuDropdown = ({ item, onLinkClick, openMobileDropdown, setOpenMobileDropdown }) => {
   const isOpen = openMobileDropdown === item.key;
 

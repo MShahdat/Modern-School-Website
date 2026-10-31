@@ -78,7 +78,6 @@ const Event = () => {
 
   const get = (idx) => displayEvents[idx];
 
-  /* Small card: image on top, meta below; whole card is a Link. */
   const CardSm = ({ ev }) => (
     <Link
       to={`/events/${ev.id}`}
@@ -98,7 +97,6 @@ const Event = () => {
     </Link>
   );
 
-  /* Large hero card: background image with bottom gradient overlay; whole card is a Link. */
   const CardLg = ({ ev }) => (
     <Link
       to={`/events/${ev.id}`}

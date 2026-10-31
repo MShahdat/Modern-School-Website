@@ -3,22 +3,19 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { Api_Base_Url } from '../../Config/Api';
 
-/* 🔵 per-tab cache (persists until hard refresh) */
+/* per-tab cache (persists until hard refresh) */
 let cachedSchoolData = null;
 let schoolDataPromise = null;
 
 const Teacher = () => {
-  const [schoolData, setSchoolData] = useState(cachedSchoolData);   // 🔵 init from cache
-  const [loading, setLoading] = useState(!cachedSchoolData);        // 🔵 skip loader if cached
+  const [schoolData, setSchoolData] = useState(cachedSchoolData);   // init from cache
+  const [loading, setLoading] = useState(!cachedSchoolData);        // skip loader if cached
   const [error, setError] = useState(null);
 
   const cardRefs = useRef([]);
 
   useEffect(() => {
-    // If cached, don't fetch again
     if (cachedSchoolData) return;
-
-    // Deduplicate in-flight request across mounts
     if (!schoolDataPromise) {
       schoolDataPromise = fetch(`${Api_Base_Url}/`)
         .then((res) => {
@@ -26,7 +23,7 @@ const Teacher = () => {
           return res.json();
         })
         .then((data) => {
-          cachedSchoolData = data; // 🔵 cache once
+          cachedSchoolData = data; 
           return data;
         })
         .catch((err) => { throw err; })
@@ -44,7 +41,6 @@ const Teacher = () => {
 
   const teachers = schoolData?.teachers ?? [];
 
-  // (kept your IO hook structure; no design change)
   useEffect(() => {
     if (!teachers.length) return;
 
@@ -56,7 +52,6 @@ const Teacher = () => {
   }, [teachers.length]);
 
   if (loading) {
-    // 🔵 SHIMMER: mirrors heading + grid + your card layout (image left, text right)
     const placeholders = Array.from({ length: 6 });
     return (
       <div className="bg-blue-50 px-4 py-8 xl:px-35 mx-auto">
@@ -111,7 +106,6 @@ const Teacher = () => {
                 alt={teacher.name}
               />
               <div className="mt-0">
-                {/* 🔵 use dangerouslySetInnerHTML for text (no design change) */}
                 <p
                   className="text-lg sm:text-xl text-blue-900 font-bold uppercase"
                   dangerouslySetInnerHTML={{ __html: String(teacher.name ?? '') }}

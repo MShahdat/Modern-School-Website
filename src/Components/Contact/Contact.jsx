@@ -2,7 +2,6 @@
 import React, { useEffect, useMemo, useState } from "react";
 import { Api_Base_Url } from "../../Config/Api";
 
-/* 🔵 Session cache */
 let cachedSchoolData = null;
 let schoolDataPromise = null;
 

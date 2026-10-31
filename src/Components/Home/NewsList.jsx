@@ -33,7 +33,7 @@ const NewsList = () => {
       });
   }, []);
 
-  // Normalize and choose items: if >=5 -> first 5, else -> all
+
   const latestFive = useMemo(() => {
     const all = (schoolData?.news || []).map((n) => ({
       ...n,
@@ -42,7 +42,7 @@ const NewsList = () => {
     return all.length >= 5 ? all.slice(0, 5) : all;
   }, [schoolData]);
 
-  // Duplicate for infinite loop track
+
   const loopItems = useMemo(() => [...latestFive, ...latestFive], [latestFive]);
 
   const prev = () =>

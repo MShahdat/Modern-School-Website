@@ -11,12 +11,12 @@ const TRANSITION_MS = 2000;
 const INTERVAL_MS = 3000;
 
 const Uniform = () => {
-  // ---- data hooks
+
   const [schoolData, setSchoolData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  // ---- slider hooks (MUST be before any early return)
+
   const extendedSlides = [slides[slides.length - 1], ...slides, slides[0]];
   const [index, setIndex] = useState(1);
   const [transitionMs, setTransitionMs] = useState(TRANSITION_MS);
@@ -40,7 +40,7 @@ const Uniform = () => {
     return stopAuto;
   },);
 
-  // fetch effect
+
   useEffect(() => {
     fetch(`${Api_Base_Url}/`)
       .then((res) => {
@@ -81,13 +81,12 @@ const Uniform = () => {
   const next = () => setIndex((i) => i + 1);
   const realActive = (index - 1 + slides.length) % slides.length;
 
-  // ---- loading shimmer (only this block is new)
   if (loading) {
     return (
       <section className="w-full bg-gray-50 py-8">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14 items-center">
-            {/* Left skeleton */}
+      
             <div className="w-full">
               <div className="animate-pulse">
                 <div className="h-8 sm:h-10 w-64 bg-gray-200 rounded mb-3" />
@@ -108,7 +107,7 @@ const Uniform = () => {
               </div>
             </div>
 
-            {/* Right skeleton (card + image) */}
+
             <div className="bg-white rounded-3xl shadow-xl p-8 relative flex items-center justify-center min-h-[420px]">
               <div className="w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl 2xl:max-w-2xl h-56 sm:h-64 md:h-72 lg:h-80 xl:h-96 overflow-hidden">
                 <div className="w-full h-full animate-pulse">
@@ -117,7 +116,7 @@ const Uniform = () => {
                 </div>
               </div>
 
-              {/* Dots */}
+  
               <div className="absolute bottom-4 left-0 right-0 flex justify-center gap-2">
                 {[...Array(5)].map((_, i) => (
                   <span
@@ -127,7 +126,7 @@ const Uniform = () => {
                 ))}
               </div>
 
-              {/* Arrows */}
+
               <div className="absolute left-3 sm:left-4 top-1/2 -translate-y-1/2 p-2 rounded-full bg-white shadow opacity-60" />
               <div className="absolute right-3 sm:right-4 top-1/2 -translate-y-1/2 p-2 rounded-full bg-white shadow opacity-60" />
             </div>
@@ -146,7 +145,7 @@ const Uniform = () => {
       <section className="w-full py-8">
       <div className="max-w-7xl mx-auto px-4 py-12">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14 items-center">
-          {/* Left */}
+
           <div>
             <h2 className="text-2xl md:text-4xl font-bold text-slate-800 dark:text-white/90">
               Students Uniform
@@ -167,7 +166,6 @@ const Uniform = () => {
             </div>
           </div>
 
-          {/* Right: slider */}
           <div
             className="bg-white rounded-3xl shadow-xl p-8 relative flex items-center justify-center"
             onMouseEnter={stopAuto}

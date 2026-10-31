@@ -1,9 +1,9 @@
 // src/Academic/TeacherDetails.jsx  (StaffDetails)
 import React, { useEffect, useState } from 'react';
-import { useParams, Link } from 'react-router-dom';   // ✅ web router
+import { useParams, Link } from 'react-router-dom'; 
 import { Api_Base_Url } from '../../Config/Api';
 
-/* 🔵 per-tab cache (persists until hard refresh) */
+/* per-tab cache (persists until hard refresh) */
 let cachedSchoolData = null;
 let schoolDataPromise = null;
 
@@ -11,15 +11,13 @@ const StaffDetails = () => {
   const { id } = useParams();
   const staffId = Number(id);
 
-  const [schoolData, setSchoolData] = useState(cachedSchoolData);  // 🔵 init from cache
-  const [loading, setLoading]   = useState(!cachedSchoolData);     // 🔵 skip loader if cached
+  const [schoolData, setSchoolData] = useState(cachedSchoolData);  // init from cache
+  const [loading, setLoading]   = useState(!cachedSchoolData);     // skip loader if cached
   const [error, setError]       = useState(null);
 
   useEffect(() => {
-    // If cached, don't fetch again
     if (cachedSchoolData) return;
 
-    // Deduplicate in-flight fetch across mounts
     if (!schoolDataPromise) {
       schoolDataPromise = fetch(`${Api_Base_Url}/`)
         .then((res) => {
@@ -44,7 +42,6 @@ const StaffDetails = () => {
   }, []);
 
   if (loading) {
-    // 🔵 SHIMMER: mirrors heading + hr + details card (image, name/role, table rows, back btn)
     return (
       <div className="bg-gray-50 min-h-screen p-8">
         <div className="flex justify-center">
@@ -90,7 +87,6 @@ const StaffDetails = () => {
     return <div className="text-center py-10">Staff not found</div>;
   }
 
-  // Map API fields -> your existing UI field names
   const staff = {
     photo: s.photo,
     name: s.name,
@@ -102,7 +98,6 @@ const StaffDetails = () => {
     email: s.email ?? '—',
     contactNo: s.phone ?? '—',
     nationalIdNo: s.national_id ?? '—',
-    // Long text fields (may include HTML)
     qualificationHtml: s.qualification ?? '—',
     experience: s.experience ?? '—',
     interestHtml: s.interest ?? '—',
@@ -125,7 +120,6 @@ const StaffDetails = () => {
               alt={staff.name}
               className="w-48 h-56 object-cover rounded-md border"
             />
-            {/* 🔵 allow HTML in name/role if API sends markup (no design change) */}
             <h2
               className=" text-xl md:text-2xl font-bold mt-4 text-center uppercase text-blue-950"
               dangerouslySetInnerHTML={{ __html: String(staff.name ?? '') }}
@@ -169,7 +163,6 @@ const StaffDetails = () => {
                   <td className='text-black/80'>{staff.nationalIdNo}</td>
                 </tr>
 
-                {/* 🔵 Use dangerouslySetInnerHTML for long text cells (no layout change) */}
                 <tr className="border-b-2 border-gray-300 align-top">
                   <td className="py-3 font-bold text-gray-800">Qualification :</td>
                   <td

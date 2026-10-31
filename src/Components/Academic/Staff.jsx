@@ -3,13 +3,13 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom'; // ✅ web routing
 import { Api_Base_Url } from '../../Config/Api';
 
-/* 🔵 per-tab cache (persists until hard refresh) */
+/* per-tab cache (persists until hard refresh) */
 let cachedSchoolData = null;
 let schoolDataPromise = null;
 
 const Staff = () => {
-  const [schoolData, setSchoolData] = useState(cachedSchoolData);   // 🔵 init from cache
-  const [loading, setLoading] = useState(!cachedSchoolData);        // 🔵 skip loader if cached
+  const [schoolData, setSchoolData] = useState(cachedSchoolData);   // init from cache
+  const [loading, setLoading] = useState(!cachedSchoolData);        // skip loader if cached
   const [error, setError] = useState(null);
 
   useEffect(() => {
@@ -24,7 +24,7 @@ const Staff = () => {
           return res.json();
         })
         .then((data) => {
-          cachedSchoolData = data;  // 🔵 cache once
+          cachedSchoolData = data;  // cache once
           return data;
         })
         .catch((err) => { throw err; })
@@ -41,7 +41,6 @@ const Staff = () => {
   }, []);
 
   if (loading) {
-    // 🔵 SHIMMER: mirrors heading + grid + card (image left, text right)
     const placeholders = Array.from({ length: 6 });
     return (
       <div className="bg-blue-50 px-4 py-8 xl:px-35 mx-auto">
@@ -75,7 +74,6 @@ const Staff = () => {
     return <div className="text-center py-4 text-red-500">{error}</div>;
   }
 
-  // API -> UI
   const staff = schoolData?.staff ?? [];
 
   return (
@@ -98,7 +96,6 @@ const Staff = () => {
                 alt={s.name}
               />
               <div className="mt-0">
-                {/* 🔵 use dangerouslySetInnerHTML for text (no design change) */}
                 <p
                   className="text-lg sm:text-xl text-black/85 font-bold uppercase"
                   dangerouslySetInnerHTML={{ __html: String(s.name ?? '') }}

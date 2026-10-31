@@ -3,15 +3,14 @@ import React, { useEffect, useMemo, useState } from "react";
 import { Api_Base_Url } from "../../Config/Api";
 
 const Photo = () => {
-  // Replaces local Photos import with API-driven data
   const [photos, setPhotos] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  // Modal state (unchanged)
+
   const [modalIndex, setModalIndex] = useState(null);
 
-  // NEW: offset for track position (unchanged)
+
   const [offset, setOffset] = useState(0);
 
   useEffect(() => {
@@ -21,8 +20,6 @@ const Photo = () => {
         if (!res.ok) throw new Error("Failed to fetch school data");
         const data = await res.json();
 
-        // Flatten all event galleries into the shape your UI expects
-        // Each item must have: { img, name, occation }
         const events = Array.isArray(data?.events) ? data.events : [];
         const flat = [];
         for (const ev of events) {
@@ -46,10 +43,10 @@ const Photo = () => {
     load();
   }, []);
 
-  // Duplicate list for infinite loop (unchanged)
+
   const loop = useMemo(() => [...photos, ...photos], [photos]);
 
-  // Modal navigation (unchanged, but guarded for empty data)
+
   const showPrevModal = () => {
     if (!photos.length) return;
     setModalIndex((prev) => (prev === 0 ? photos.length - 1 : prev - 1));
@@ -59,7 +56,7 @@ const Photo = () => {
     setModalIndex((prev) => (prev === photos.length - 1 ? 0 : prev + 1));
   };
 
-  // NEW: carousel arrow navigation (unchanged, but guarded)
+
   const slidePrev = () => {
     if (!photos.length) return;
     setOffset((o) => (o === 0 ? photos.length - 1 : o - 1));
@@ -69,10 +66,8 @@ const Photo = () => {
     setOffset((o) => (o === photos.length - 1 ? 0 : o + 1));
   };
 
-  // Step size = w-64 (16rem) + gap-4 (1rem) = 17rem (unchanged)
   const STEP = "17rem";
 
-  // Keep structure/design as-is. No loading or error UI added to avoid layout changes.
   return (
     <div className="bg-blue-50 px-4 py-8 xl:px-8 mx-auto rounded-xl max-w-7xl">
       <h3 className="text-3xl md:text-4xl font-bold text-center text-blue-900 mb-4">
@@ -115,7 +110,6 @@ const Photo = () => {
                 ? `calc((-${STEP}) * ${offset})`
                 : undefined,
               transition: "margin-left 400ms ease",
-              // Pause the auto-scroll animation when we have no data
               animationPlayState: photos.length ? undefined : "paused",
             }}
           >
@@ -151,7 +145,6 @@ const Photo = () => {
         </button>
       </div>
 
-      {/* See More Button */}
       <div className="text-center mt-8">
         <a
           href="/gallery"
@@ -161,7 +154,6 @@ const Photo = () => {
         </a>
       </div>
 
-      {/* Modal */}
       {modalIndex !== null && photos.length > 0 && (
         <div className="fixed inset-0 z-50 bg-black bg-opacity-80 flex items-center justify-center">
           <button

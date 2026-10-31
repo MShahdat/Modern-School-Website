@@ -9,9 +9,6 @@ function getFileKind(url = "") {
   return "unknown";
 }
 
-/* ──────────────────────────────────────────────────────────────
-   Cache (per-tab)
-   ────────────────────────────────────────────────────────────── */
 let cachedSchoolData = null;
 let schoolDataPromise = null;
 
@@ -58,9 +55,6 @@ const Schedule = () => {
       .finally(() => setLoading(false));
   }, []);
 
-  /* ────────────────────────────────────────────────────────────
-     Actions
-     ──────────────────────────────────────────────────────────── */
   const handleDownload = async (url, fallbackName = "file") => {
     try {
       if (!url) return;
@@ -92,9 +86,6 @@ const Schedule = () => {
     setPreview({ open: false, url: "", kind: "unknown", title: "", isBlob: false });
   };
 
-  /* ────────────────────────────────────────────────────────────
-     Loading shimmer
-     ──────────────────────────────────────────────────────────── */
   if (loading) {
     const placeholders = Array.from({ length: 2 });
     return (
@@ -130,9 +121,6 @@ const Schedule = () => {
     );
   }
 
-  /* ────────────────────────────────────────────────────────────
-     Render
-     ──────────────────────────────────────────────────────────── */
   return (
     <div className="bg-gray-50 dark:bg-black/80">
       <div className="max-w-7xl mx-auto p-8">
@@ -174,7 +162,6 @@ const Schedule = () => {
         ))}
       </div>
 
-      {/* Modal left for consistency */}
       {preview.open && (
         <div className="fixed inset-0 z-50">
           <div

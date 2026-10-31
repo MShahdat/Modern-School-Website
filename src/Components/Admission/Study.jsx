@@ -72,10 +72,8 @@ const Study = () => {
       <hr className='border-t border-2 border-black/20 dark:border-white/20 mt-2 mb-0' />
 
       <div className='px-8 py-12'>
-        {/* ⬇️ CHANGED: render ALL entries */}
         {schoolData?.why_study.map((it, idx) => (
           <div key={it?.id ?? idx} className="mb-8">
-            {/* optional sub-title if your API provides it */}
             {it?.title ? (
               <div
                 className="text-xl dark:text-white/90 md:text-2xl font-semibold mb-3 text-blue-950"

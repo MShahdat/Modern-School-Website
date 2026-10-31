@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { Api_Base_Url } from "../../Config/Api";
 import { MdKeyboardDoubleArrowRight } from "react-icons/md";
 
-/* per-tab cache */
+
 let cachedSchoolData = null;
 let schoolDataPromise = null;
 
@@ -12,7 +12,7 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-// Arrow buttons (unchanged)
+
 const ArrowBtn = ({ direction = "prev", onClick, className = "", style = {} }) => {
   const sideStyle =
     direction === "prev" ? { left: "-12px", right: "auto" } : { right: "-12px", left: "auto" };
@@ -108,7 +108,7 @@ const Achieve = () => {
     arrow: false,
     nextArrow: <NextArrow />,
     prevArrow: <PrevArrow />,
-    fade: false, // keep slide; can set true if you prefer fade
+    fade: false, 
     cssEase: "ease-in-out",
   };
 

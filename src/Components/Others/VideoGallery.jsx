@@ -1,23 +1,21 @@
 // src/Components/Others/VideoGallery.jsx
 import React, { useState, useEffect } from "react";
-import { Api_Base_Url } from "../../Config/Api"; // ← bring in your API base
+import { Api_Base_Url } from "../../Config/Api"; 
 
-/* 🔵 ADD: per-tab cache (persists until hard refresh) */
+
 let cachedVideos = null;
 let videosPromise = null;
 
 const VideoGallery = () => {
-  // 🔵 init from cache so revisits don’t show loader/refetch
+
   const [videos, setVideos] = useState(cachedVideos || []);
-  const [loading, setLoading] = useState(!cachedVideos); // was true; now skip if cached
+  const [loading, setLoading] = useState(!cachedVideos);
 
   useEffect(() => {
     const isMp4 = (url = "") => /\.mp4(\?.*)?$/i.test(url);
 
-    // If we already have cached data, don't fetch again
     if (cachedVideos) return;
 
-    // Deduplicate in-flight requests across mounts
     if (!videosPromise) {
       videosPromise = fetch(`${Api_Base_Url}/`)
         .then((res) => {
@@ -36,11 +34,11 @@ const VideoGallery = () => {
                   occation: g.caption || event.title || "",
                 }))
             );
-          cachedVideos = built; // 🔵 cache for this tab
+          cachedVideos = built; 
           return built;
         })
         .catch(() => {
-          cachedVideos = []; // cache empty to avoid repeated failing fetches
+          cachedVideos = [];
           return [];
         })
         .finally(() => {
@@ -54,8 +52,8 @@ const VideoGallery = () => {
       .finally(() => setLoading(false));
   }, []);
 
-  // ✅ Pagination setup (replaces See More/Less)
-  const itemsPerPage = 8; // 2 rows × 4 columns
+
+  const itemsPerPage = 8; 
   const [currentPage, setCurrentPage] = useState(1);
 
   const totalPages = Math.ceil(videos.length / itemsPerPage);
@@ -63,7 +61,7 @@ const VideoGallery = () => {
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
   const currentItems = videos.slice(indexOfFirstItem, indexOfLastItem);
 
-  // ✅ Modal logic
+
   const [selectedIndex, setSelectedIndex] = useState(null);
 
   const openModal = (index) => setSelectedIndex(index);
@@ -76,7 +74,6 @@ const VideoGallery = () => {
       prev < currentItems.length - 1 ? prev + 1 : prev
     );
 
-  // 🔵 SHIMMER: show skeletons while loading (design/layout preserved)
   if (loading) {
     const placeholders = Array.from({ length: 8 });
     return (
@@ -91,9 +88,7 @@ const VideoGallery = () => {
               key={i}
               className="group relative border border-cyan-100 bg-white rounded-lg overflow-hidden shadow-md"
             >
-              {/* video box shimmer */}
               <div className="w-full h-60 bg-gray-100 animate-pulse" />
-              {/* caption shimmer */}
               <p className="text-gray-600 text-center mb-2">
                 <span className="inline-block h-4 w-2/3 bg-gray-100 rounded animate-pulse" />
               </p>
@@ -144,10 +139,8 @@ const VideoGallery = () => {
           ))}
         </div>
 
-        {/* 🔵 Pagination Section */}
         {totalPages > 1 && (
           <div className="flex justify-center items-center space-x-2 mt-8">
-            {/* Previous button: hidden on first page */}
             {currentPage > 1 && (
               <button
                 onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
@@ -171,7 +164,6 @@ const VideoGallery = () => {
               </button>
             ))}
 
-            {/* Next button: hidden on last page */}
             {currentPage < totalPages && (
               <button
                 onClick={() =>
@@ -185,7 +177,6 @@ const VideoGallery = () => {
           </div>
         )}
 
-        {/* Modal */}
         {selectedIndex !== null && (
           <div className="fixed inset-0 z-50 bg-black bg-opacity-80 flex items-center justify-center">
             <button

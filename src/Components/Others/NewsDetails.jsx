@@ -4,23 +4,20 @@ import { useParams, Link } from "react-router-dom";
 import { Api_Base_Url } from "../../Config/Api";
 import { Shimmer, SkeletonDetails } from "../../Shimmer/Shimmer";
 
-/* 🔵 Per-tab cache (persists until hard refresh) */
 let cachedSchoolData = null;
 let schoolDataPromise = null;
 
 const NewsDetails = () => {
   const { id } = useParams();
 
-  // 🔵 init from cache so we can skip loading spinner when data already exists
   const [schoolData, setSchoolData] = useState(cachedSchoolData);
   const [loading, setLoading] = useState(!cachedSchoolData);
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    // If we already have cached data in this tab, don't fetch again
+
     if (cachedSchoolData) return;
 
-    // Deduplicate in-flight requests across mounts
     if (!schoolDataPromise) {
       schoolDataPromise = fetch(`${Api_Base_Url}/`)
         .then((res) => {
@@ -98,7 +95,6 @@ const NewsDetails = () => {
       </h3>
       <hr className="border-t border-2 border-black/20 dark:border-white/20 mt-2 mb-8" />
 
-      {/* ✅ Shimmer wraps content, shows skeleton when loading */}
       <Shimmer
         show={loading}
         fallback={<SkeletonDetails mediaClass="w-full h-80" />}

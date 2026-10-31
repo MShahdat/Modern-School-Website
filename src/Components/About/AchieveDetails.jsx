@@ -3,14 +3,14 @@ import React, { useState, useEffect, useMemo } from "react";
 import { useParams, Link } from "react-router-dom"; // ✅ use react-router-dom
 import { Api_Base_Url } from "../../Config/Api";
 
-/* 🔵 per-tab cache (lives until hard refresh) */
+/*  per-tab cache (lives until hard refresh) */
 let cachedSchoolData = null;
 let schoolDataPromise = null;
 
 const AchieveDetails = () => {
   const { id } = useParams();
-  const [schoolData, setSchoolData] = useState(cachedSchoolData);     // 🔵 init from cache
-  const [loading, setLoading] = useState(!cachedSchoolData);          // 🔵 skip loader if cached
+  const [schoolData, setSchoolData] = useState(cachedSchoolData);     //  init from cache
+  const [loading, setLoading] = useState(!cachedSchoolData);          //  skip loader if cached
   const [error, setError] = useState(null);
 
   useEffect(() => {
@@ -71,7 +71,7 @@ const AchieveDetails = () => {
   };
 
   if (loading) {
-    // 🔵 SHIMMER: mirrors heading + hr + details card (image, title, text, buttons)
+    //  SHIMMER: mirrors heading + hr + details card (image, title, text, buttons)
     return (
       <div className="p-8 bg-gray-50 xl:px-30">
         <h3 className="font-marko-one text-4xl font-bold text-center text-blue-800 mb-4">
@@ -129,7 +129,6 @@ const AchieveDetails = () => {
           />
         ) : null}
 
-        {/* ✅ keep using dangerouslySetInnerHTML (newline -> <br />) */}
         <div
           className="mt-4 text-gray-800 text-[16px] md:text-[17px] leading-relaxed tracking-wide prose max-w-none"
           dangerouslySetInnerHTML={{
