@@ -3,7 +3,6 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Api_Base_Url } from "../../Config/Api";
 
-/* 🔵 ADD: simple in-memory cache that survives remounts (per tab session) */
 let cachedSchoolData = null;          // holds the last good data
 let schoolDataPromise = null;         // dedupe concurrent fetches
 
@@ -13,10 +12,7 @@ const NewsList = () => {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    // If we already have cache, don't fetch again.
     if (cachedSchoolData) return;
-
-    // Reuse in-flight request if it exists; otherwise, start one.
     if (!schoolDataPromise) {
       schoolDataPromise = fetch(`${Api_Base_Url}/`)
         .then((res) => {
@@ -24,11 +20,11 @@ const NewsList = () => {
           return res.json();
         })
         .then((data) => {
-          cachedSchoolData = data; // ✅ cache the data
+          cachedSchoolData = data; 
           return data;
         })
         .finally(() => {
-          schoolDataPromise = null; // clear the in-flight marker
+          schoolDataPromise = null; 
         });
     }
 
@@ -62,7 +58,6 @@ const NewsList = () => {
   */
 
   if (loading) {
-    // shimmer placeholders to mirror your 4-col grid and card layout
     const placeholders = Array.from({ length: 8 });
     return (
       <div className="bg-blue-950 p-8 xl:px-30">
@@ -74,19 +69,19 @@ const NewsList = () => {
               key={i}
               className="border border-indigo-200 rounded-xl shadow-lg overflow-hidden bg-white"
             >
-              {/* image shimmer */}
+
               <div className="w-full h-50 bg-gray-200 animate-pulse" />
               <div className="p-4">
-                {/* title shimmer */}
+
                 <div className="h-5 w-3/4 bg-gray-200 rounded animate-pulse" />
-                {/* date shimmer */}
+       
                 <div className="mt-2 h-4 w-1/3 bg-gray-200 rounded animate-pulse" />
-                {/* excerpt shimmer */}
+          
                 <div className="mt-3 space-y-2">
                   <div className="h-4 w-full bg-gray-200 rounded animate-pulse" />
                   <div className="h-4 w-5/6 bg-gray-200 rounded animate-pulse" />
                 </div>
-                {/* button shimmer */}
+  
                 <div className="flex gap-4 mt-5">
                   <div className="h-9 w-28 bg-gray-200 rounded animate-pulse" />
                 </div>

@@ -6,22 +6,21 @@ let cachedSchoolData = null;
 let schoolDataPromise = null;
 
 const Gallery = () => {
-  // 🔵 init from cache so revisits don’t show loader/refetch
+
   const [schoolData, setSchoolData] = useState(cachedSchoolData);
   const [loading, setLoading] = useState(!cachedSchoolData);
   const [error, setError] = useState(null);
 
   const [selectedIndex, setSelectedIndex] = useState(null);
 
-  // Pagination states
+
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 8; // 2 rows × 4 columns
 
   useEffect(() => {
-    // If we already have cached data, don't fetch again
+
     if (cachedSchoolData) return;
 
-    // Deduplicate in-flight requests across mounts
     if (!schoolDataPromise) {
       schoolDataPromise = fetch(`${Api_Base_Url}/`)
         .then((res) => {
@@ -63,7 +62,7 @@ const Gallery = () => {
         })),
     );
 
-  // Pagination logic
+
   const totalPages = Math.ceil(Photos.length / itemsPerPage);
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
@@ -76,7 +75,7 @@ const Gallery = () => {
   const showNext = () =>
     setSelectedIndex((prev) => (prev < Photos.length - 1 ? prev + 1 : prev));
 
-  // ⬇️ Keyboard navigation when modal is open (unchanged)
+
   useEffect(() => {
     if (selectedIndex === null) return;
 
@@ -100,7 +99,6 @@ const Gallery = () => {
   }, [selectedIndex, Photos.length]);
 
   if (loading) {
-    // 🔵 Shimmer loader matching gallery layout (no design change)
     const placeholders = Array.from({ length: 8 });
     return (
       <div className="bg-blue-50 px-4 py-8 xl:px-40 mx-auto">
@@ -139,7 +137,7 @@ const Gallery = () => {
         </h3>
         <hr className="border-t border-2 border-black/20 dark:border-white/20 mt-2 mb-8" />
 
-        {/* ✅ Gallery Grid */}
+
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
           {currentItems.map((customer, index) => (
             <div
@@ -165,10 +163,10 @@ const Gallery = () => {
           ))}
         </div>
 
-        {/* ✅ Pagination Controls */}
+
         {totalPages > 1 && (
           <div className="flex justify-center items-center space-x-2 mt-8">
-            {/* Hide "Previous" when on first page */}
+
             {currentPage > 1 && (
               <button
                 onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
@@ -192,7 +190,6 @@ const Gallery = () => {
               </button>
             ))}
 
-            {/* Hide "Next" when on last page */}
             {currentPage < totalPages && (
               <button
                 onClick={() => setCurrentPage((prev) => Math.min(prev + 1, totalPages))}
@@ -204,7 +201,6 @@ const Gallery = () => {
           </div>
         )}
 
-        {/* ✅ Image Modal */}
         {selectedIndex !== null && (
           <div className="fixed inset-0 z-50 bg-black bg-opacity-80 flex items-center justify-center">
             <button

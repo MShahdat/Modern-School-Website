@@ -4,13 +4,10 @@ import videoData from "../Others/VideoData";
 const VideoGallery = () => {
   const [modalIndex, setModalIndex] = useState(null);
 
-  // NEW: offset to nudge the track by exactly one card width per click
   const [offset, setOffset] = useState(0);
 
-  // Duplicate videos for infinite loop (for the marquee)
   const loopVideos = [...videoData, ...videoData];
 
-  // Modal navigation (unchanged)
   const showPrev = () => {
     setModalIndex((prev) => (prev === 0 ? videoData.length - 1 : prev - 1));
   };
@@ -18,7 +15,6 @@ const VideoGallery = () => {
     setModalIndex((prev) => (prev === videoData.length - 1 ? 0 : prev + 1));
   };
 
-  // NEW: carousel arrow handlers (move one card)
   const slidePrev = () => {
     setOffset((o) => (o === 0 ? videoData.length - 1 : o - 1));
   };
@@ -26,7 +22,6 @@ const VideoGallery = () => {
     setOffset((o) => (o === videoData.length - 1 ? 0 : o + 1));
   };
 
-  // card width step = w-72 (18rem) + gap-4 (1rem) = 19rem
   const STEP = "19rem";
 
   return (
@@ -37,7 +32,7 @@ const VideoGallery = () => {
       </h3>
       <hr className="border-t border-2 border-gray-500 mt-2 mb-12" />
 
-      {/* Animation styles */}
+
       <style>{`
         @keyframes slide-left {
           0% { transform: translateX(0); }
@@ -52,9 +47,8 @@ const VideoGallery = () => {
         }
       `}</style>
 
-      {/* Slider Container */}
       <div className="relative flex items-center justify-center video-slider">
-        {/* Left Arrow -> now slides the track one card */}
+   
         <button
           onClick={slidePrev}
           className="absolute left-4 bg-blue-900 text-white rounded-full p-3 hover:bg-blue-950 z-10"
@@ -62,12 +56,11 @@ const VideoGallery = () => {
           &#8592;
         </button>
 
-        {/* Infinite marquee-style track */}
+     
         <div className="w-full max-w-6xl overflow-hidden">
           <div
             className="track flex gap-4 w-[200%]"
             style={{
-              // manual step offset layered on top of the marquee animation
               marginLeft: `calc((-${STEP}) * ${offset})`,
               transition: "margin-left 400ms ease",
             }}
@@ -105,7 +98,7 @@ const VideoGallery = () => {
           </div>
         </div>
 
-        {/* Right Arrow -> now slides the track one card */}
+   
         <button
           onClick={slideNext}
           className="absolute right-4 bg-blue-900 text-white rounded-full p-3 hover:bg-blue-950 z-10"
@@ -114,7 +107,7 @@ const VideoGallery = () => {
         </button>
       </div>
 
-      {/* See More Button */}
+
       <div className="text-center mt-8">
         <a
           href="/videos"
@@ -124,7 +117,7 @@ const VideoGallery = () => {
         </a>
       </div>
 
-      {/* Modal (unchanged) */}
+
       {modalIndex !== null && (
         <div className="fixed inset-0 z-50 bg-black bg-opacity-80 flex items-center justify-center">
           <button

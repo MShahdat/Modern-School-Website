@@ -1,7 +1,6 @@
 import React, { useEffect, useMemo, useState } from "react";
 import { Api_Base_Url } from "../../Config/Api";
 
-/* 🔵 Per-tab cache (same pattern you use elsewhere) */
 let cachedSchoolData = null;
 let schoolDataPromise = null;
 
@@ -35,7 +34,6 @@ const Schedule = () => {
       .finally(() => setLoading(false));
   }, []);
 
-  // pick the latest published routines item (fallback: first)
   const feeEntry = useMemo(() => {
     const list = Array.isArray(schoolData?.routines) ? [...schoolData.routines] : [];
     if (!list.length) return null;
@@ -45,7 +43,6 @@ const Schedule = () => {
     return pool[0] || null;
   }, [schoolData]);
 
-  // Parse the HTML table from API -> headers + rows
   const { headers, rows } = useMemo(() => {
     if (!feeEntry?.description) return { headers: [], rows: [] };
     try {
@@ -60,9 +57,6 @@ const Schedule = () => {
     }
   }, [feeEntry]);
 
-  /* =========================
-     🔵 SHIMMER LOADING STATE
-     ========================= */
   if (loading) {
     const fakeCols = Array.from({ length: 4 });
     const fakeRows = Array.from({ length: 6 });

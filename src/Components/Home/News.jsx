@@ -4,17 +4,14 @@ import { Link } from "react-router-dom"; // use DOM router
 import { Api_Base_Url } from "../../Config/Api";
 import { MdKeyboardDoubleArrowRight } from "react-icons/md";
 
-
-/* 🔵 ADD: per-tab cache (persists until hard refresh) */
 let cachedSchoolData = null;
 let schoolDataPromise = null;
 
-/* 🔵 Slider (react-slick) */
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-// Arrow buttons (unchanged)
+
 const ArrowBtn = ({ direction = "prev", onClick, className = "", style = {} }) => {
   const sideStyle =
     direction === "prev" ? { left: "-12px", right: "auto" } : { right: "-12px", left: "auto" };
@@ -33,7 +30,6 @@ const PrevArrow = (props) => <ArrowBtn direction="prev" {...props} />;
 const NextArrow = (props) => <ArrowBtn direction="next" {...props} />;
 
 const News = () => {
-  // 🔵 init from cache so revisits don't show loader/refetch
   const [schoolData, setSchoolData] = useState(cachedSchoolData);
   const [loading, setLoading] = useState(!cachedSchoolData);
   const [error, setError] = useState(null);
@@ -53,7 +49,6 @@ const News = () => {
 
   useEffect(() => {
         const handleResize = () => setSlidesToShow(getSlidesToShow(window.innerWidth))
-        // ensure correct value on mount
         handleResize()
         window.addEventListener('resize', handleResize)
         return () => window.removeEventListener('resize', handleResize)
@@ -132,10 +127,7 @@ const News = () => {
   const news = schoolData?.news ?? [];
   const displaynews = news.slice(0, 6);
 
-  
 
-
-  // ✅ Responsive slider config
   const settings = {
     infinite: true,
     speed: 3500,

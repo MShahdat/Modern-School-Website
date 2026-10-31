@@ -4,23 +4,21 @@ import { useParams, Link } from "react-router";
 import { Api_Base_Url } from "../../Config/Api";
 import { useState, useEffect, useMemo } from "react";
 
-/* 🔵 Per-tab cache so we fetch once until hard refresh */
+
 let cachedSchoolData = null;
 let schoolDataPromise = null;
 
 const NoticeDetails = () => {
   const { id } = useParams();
 
-  // 🔵 init from cache; skip spinner if we already have data this tab
   const [schoolData, setSchoolData] = useState(cachedSchoolData);
   const [loading, setLoading] = useState(!cachedSchoolData);
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    // if cached, don't fetch again
+
     if (cachedSchoolData) return;
 
-    // dedupe concurrent requests across mounts
     if (!schoolDataPromise) {
       schoolDataPromise = fetch(`${Api_Base_Url}/`)
         .then((res) => {
@@ -28,7 +26,7 @@ const NoticeDetails = () => {
           return res.json();
         })
         .then((data) => {
-          cachedSchoolData = data; // cache once for the tab
+          cachedSchoolData = data; 
           return data;
         })
         .catch((err) => {
@@ -48,7 +46,7 @@ const NoticeDetails = () => {
       .finally(() => setLoading(false));
   }, []);
 
-  // pick the news item by id from the API response
+
   const noticeItem = useMemo(() => {
     const all = schoolData?.notices || [];
     return all.find((n) => n.id === Number(id));
@@ -57,7 +55,7 @@ const NoticeDetails = () => {
   const handleDownload = async () => {
     try {
       if (!noticeItem?.file) return;
-      const url = noticeItem.file; // actual file URL from API
+      const url = noticeItem.file; 
       const res = await fetch(url, { mode: "cors" });
       if (!res.ok) throw new Error("Failed to fetch file");
       const blob = await res.blob();
@@ -77,7 +75,6 @@ const NoticeDetails = () => {
   };
 
   if (loading) {
-    // 🔵 shimmer effect while loading
     return (
       <div className="p-8 bg-gray-50 xl:px-30">
         <h3 className="text-4xl font-bold text-center text-blue-800 mb-4">

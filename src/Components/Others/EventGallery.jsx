@@ -9,7 +9,6 @@ const EventGallery = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  // Lightbox state
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const [currentIdx, setCurrentIdx] = useState(0);
 
@@ -71,7 +70,6 @@ const EventGallery = () => {
       </h3>
       <hr className="border-t border-2 border-gray-500 mt-2 mb-12" />
 
-      {/* All images as cards */}
       {gallery.length ? (
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
           {gallery.map((g, idx) => (
@@ -104,7 +102,6 @@ const EventGallery = () => {
         </Link>
       </div>
 
-      {/* LIGHTBOX — same full-view style as Gallery */}
       {lightboxOpen && gallery.length > 0 && (
         <div
           className="fixed inset-0 z-50 bg-black bg-opacity-80 flex items-center justify-center p-4"
@@ -112,7 +109,7 @@ const EventGallery = () => {
           aria-modal="true"
           onClick={closeLightbox}
         >
-          {/* Close button (same position/behavior as Gallery) */}
+ 
           <button
             className="absolute top-4 right-4 text-white text-3xl font-bold"
             onClick={(e) => {
@@ -124,7 +121,6 @@ const EventGallery = () => {
             &times;
           </button>
 
-          {/* Prev button (disabled at first image, like Gallery) */}
           <button
             className="absolute left-4 text-white text-4xl disabled:opacity-50"
             onClick={(e) => {
@@ -137,7 +133,7 @@ const EventGallery = () => {
             &#8592;
           </button>
 
-          {/* Centered image that fits any aspect ratio without cropping */}
+
           <div
             className="flex flex-col items-center"
             onClick={(e) => e.stopPropagation()}
@@ -147,13 +143,12 @@ const EventGallery = () => {
               alt={gallery[currentIdx].caption || eventItem.title}
               className="max-w-full max-h-[90vh] rounded-lg object-contain"
             />
-            {/* Keep your caption (unchanged) */}
+
             <p className="mt-3 text-center text-white">
               {gallery[currentIdx].caption || ""}
             </p>
           </div>
 
-          {/* Next button (disabled at last image, like Gallery) */}
           <button
             className="absolute right-4 text-white text-4xl disabled:opacity-50"
             onClick={(e) => {

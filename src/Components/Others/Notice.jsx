@@ -3,20 +3,20 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom"; // ✅ correct import
 import { Api_Base_Url } from "../../Config/Api";
 
-/* 🔵 Per-tab cache so we fetch once until hard refresh */
+
 let cachedSchoolData = null;
 let schoolDataPromise = null;
 
 const Notice = () => {
-  // init from cache; if present, skip loading spinner
+
   const [schoolData, setSchoolData] = useState(cachedSchoolData);
   const [loading, setLoading] = useState(!cachedSchoolData);
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    if (cachedSchoolData) return; // already have data in this tab
+    if (cachedSchoolData) return; 
 
-    // dedupe concurrent fetches across mounts
+
     if (!schoolDataPromise) {
       schoolDataPromise = fetch(`${Api_Base_Url}/`)
         .then((res) => {
@@ -65,7 +65,6 @@ const Notice = () => {
     }
   };
 
-  // 🔹 your existing shimmer (unchanged)
   if (loading) {
     const placeholders = Array.from({ length: 4 });
     return (

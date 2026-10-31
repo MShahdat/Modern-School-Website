@@ -94,9 +94,7 @@ const BiologyLab = () => {
           {schoolData?.biology_lab_items?.map((biology) => (
             <div key={biology.id ?? biology.media ?? Math.random()}>
               <div className="md:mt-12 mt-8 grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-10 items-start">
-                {/* Right: text */}
                 <div className="md:col-span-7 px-4">
-                  {/* 🔵 CHANGE: use dangerouslySetInnerHTML for description */}
                   <p
                     className="mt-0 text-[16px] dark:text-white/90 tracking-wider md:text-[17px] leading-8 text-gray-700 text-justify"
                     dangerouslySetInnerHTML={{
@@ -104,7 +102,6 @@ const BiologyLab = () => {
                     }}
                   />
                 </div>
-                {/* Left: image */}
                 <div className="md:col-span-5">
                   <img
                     src={biology.media}

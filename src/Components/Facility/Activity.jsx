@@ -49,7 +49,6 @@ const Activity = () => {
       .finally(() => setLoading(false));
   }, []);
 
-  // Shimmer while loading (design unchanged)
   if (loading) {
     const placeholders = Array.from({ length: 6 });
     return (

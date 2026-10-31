@@ -3,7 +3,7 @@ import React, { useEffect, useState, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { Api_Base_Url } from '../../Config/Api';
 
-/* 🔵 per-tab cache (persists until hard refresh) */
+/* per-tab cache (persists until hard refresh) */
 let cachedSchoolData = null;
 let schoolDataPromise = null;
 
@@ -26,7 +26,7 @@ const Governing = () => {
           return res.json();
         })
         .then((data) => {
-          cachedSchoolData = data; // 🔵 cache once
+          cachedSchoolData = data; // cache once
           return data;
         })
         .catch((err) => { throw err; })
@@ -70,7 +70,6 @@ const Governing = () => {
   }, [members.length]);
 
   if (loading) {
-    // 🔵 SHIMMER: mirrors heading + grid + card layout
     const placeholders = Array.from({ length: 8 });
     return (
       <div className="px-4 py-8 mx-auto">
@@ -144,7 +143,6 @@ const Governing = () => {
               className="w-40 h-40 md:w-48 md:h-48 xl:w-40 xl:h-40 object-cover rounded-full ring-2 ring-cyan-100"
             />
             <div className="mt-5 space-y-1">
-              {/* 🔵 use dangerouslySetInnerHTML for text */}
               <h2
                 className="text-xl md:text-lg font-bold text-blue-900 leading-snug uppercase"
                 dangerouslySetInnerHTML={{ __html: String(com.name ?? '') }}

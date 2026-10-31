@@ -2,20 +2,18 @@
 import React, { useState, useEffect } from "react";
 import { Api_Base_Url } from "../../Config/Api";
 
-/* 🔵 ADD: per-tab session cache (persists until hard refresh) */
 let cachedSchoolData = null;
 let schoolDataPromise = null;
 
 const ChemistryLab = () => {
-  const [schoolData, setSchoolData] = useState(cachedSchoolData);  // 🔵 ADD: init from cache
-  const [loading, setLoading] = useState(!cachedSchoolData);       // 🔵 ADD: skip spinner if cached
+  const [schoolData, setSchoolData] = useState(cachedSchoolData);  
+  const [loading, setLoading] = useState(!cachedSchoolData);   
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    // If cached, don't fetch again
+
     if (cachedSchoolData) return;
 
-    // Deduplicate in-flight requests across mounts
     if (!schoolDataPromise) {
       schoolDataPromise = fetch(`${Api_Base_Url}/`)
         .then((res) => {
@@ -23,7 +21,7 @@ const ChemistryLab = () => {
           return res.json();
         })
         .then((data) => {
-          cachedSchoolData = data; // 🔵 cache once
+          cachedSchoolData = data;
           return data;
         })
         .catch((err) => {
@@ -44,7 +42,7 @@ const ChemistryLab = () => {
   }, []);
 
   if (loading) {
-    // 🔵 SHIMMER: exact same structure (heading + repeated two-column rows)
+
     const placeholders = Array.from({ length: 2 });
     return (
       <section className="w-full bg-white">
@@ -58,7 +56,6 @@ const ChemistryLab = () => {
           {/* Two-column shimmer */}
           {placeholders.map((_, i) => (
             <div key={i} className="mt-16 grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-10 items-start">
-              {/* Text skeleton (matches md:col-span-7) */}
               <div className="md:col-span-7">
                 <div className="space-y-3">
                   <div className="h-4 w-11/12 bg-gray-200 rounded animate-pulse" />
@@ -68,7 +65,6 @@ const ChemistryLab = () => {
                   <div className="h-4 w-7/12 bg-gray-200 rounded animate-pulse" />
                 </div>
               </div>
-              {/* Image skeleton (matches md:col-span-5) */}
               <div className="md:col-span-5">
                 <div className="w-full h-64 md:h-72 bg-gray-200 rounded-0 shadow-md animate-pulse" />
               </div>

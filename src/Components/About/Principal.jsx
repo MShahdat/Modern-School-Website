@@ -2,13 +2,13 @@
 import React, { useState, useEffect } from 'react';
 import { Api_Base_Url } from '../../Config/Api';
 
-/* 🔵 per-tab cache (persists until hard refresh) */
+/* per-tab cache (persists until hard refresh) */
 let cachedSchoolData = null;
 let schoolDataPromise = null;
 
 const Principal = () => {
-  const [schoolData, setSchoolData] = useState(cachedSchoolData);  // 🔵 init from cache
-  const [loading, setLoading] = useState(!cachedSchoolData);       // 🔵 skip loader if cached
+  const [schoolData, setSchoolData] = useState(cachedSchoolData);  // init from cache
+  const [loading, setLoading] = useState(!cachedSchoolData);       // skip loader if cached
   const [error, setError] = useState(null);
 
   useEffect(() => {
@@ -23,7 +23,7 @@ const Principal = () => {
           return res.json();
         })
         .then((data) => {
-          cachedSchoolData = data; // 🔵 cache once
+          cachedSchoolData = data; // cache once
           return data;
         })
         .catch((err) => { throw err; })
@@ -40,7 +40,6 @@ const Principal = () => {
   }, []);
 
   if (loading) {
-    // 🔵 SHIMMER: same structure & spacing as your UI
     return (
       <div className="px-4 py-8 xl:px-60 mx-auto">
         <h2 className="text-4xl font-bold text-center text-blue-900 mb-4">

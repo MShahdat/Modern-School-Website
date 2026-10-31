@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Api_Base_Url } from "../../Config/Api";
 
-/* 🔵 ADD: per-tab session cache (persists until hard refresh) */
+/*  ADD: per-tab session cache (persists until hard refresh) */
 let cachedSchoolData = null;
 let schoolDataPromise = null;
 
@@ -118,7 +118,6 @@ const Achievements = () => {
             </div>
           ))}
 
-          {/* ✅ fixed: check achievements, not news */}
           {!schoolData?.achievements?.length && (
             <div className="text-white col-span-full text-center">
               No Achievements available.

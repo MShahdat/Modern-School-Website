@@ -2,13 +2,13 @@
 import React, { useState, useEffect } from 'react';
 import { Api_Base_Url } from '../../Config/Api';
 
-/* 🔵 ADD: per-tab session cache (persists until hard refresh) */
+/* ADD: per-tab session cache (persists until hard refresh) */
 let cachedSchoolData = null;
 let schoolDataPromise = null;
 
 const MissionVision = () => {
-  const [schoolData, setSchoolData] = useState(cachedSchoolData);   // 🔵 init from cache
-  const [loading, setLoading] = useState(!cachedSchoolData);        // 🔵 skip loader if cached
+  const [schoolData, setSchoolData] = useState(cachedSchoolData);   // init from cache
+  const [loading, setLoading] = useState(!cachedSchoolData);        // skip loader if cached
   const [error, setError] = useState(null);
 
   useEffect(() => {
@@ -23,7 +23,7 @@ const MissionVision = () => {
           return res.json();
         })
         .then((data) => {
-          cachedSchoolData = data; // 🔵 cache once
+          cachedSchoolData = data; // cache once
           return data;
         })
         .catch((err) => { throw err; })
@@ -40,7 +40,6 @@ const MissionVision = () => {
   }, []);
 
   if (loading) {
-    // 🔵 SHIMMER: same structure (wrapper + heading + hr + two titled paragraphs)
     return (
       <div className='px-4 py-8 xl:px-20 mx-auto'>
         <h2 className='text-4xl font-bold text-center mb-4 text-blue-900'>Mission Vision</h2>

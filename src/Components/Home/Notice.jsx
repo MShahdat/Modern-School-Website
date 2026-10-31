@@ -3,7 +3,6 @@ import React, { useMemo, useState, useEffect } from "react";
 import { Link } from "react-router";
 import { Api_Base_Url } from "../../Config/Api";
 
-// Helpers for date format
 const getOrdinal = (n) => {
   const s = ["th", "st", "nd", "rd"], v = n % 100;
   return n + (s[(v - 20) % 10] || s[v] || s[0]);
@@ -34,7 +33,6 @@ const Notice = () => {
       });
   }, []);
 
-  // Pick notices: >=5 → first 5, else → all
   const latestFive = useMemo(() => {
     const all = (schoolData?.notices || []).map((n) => ({
       ...n,
@@ -43,7 +41,6 @@ const Notice = () => {
     return all.length >= 5 ? all.slice(0, 5) : all;
   }, [schoolData]);
 
-  // Duplicate for loop
   const loopItems = useMemo(() => [...latestFive, ...latestFive], [latestFive]);
 
   const prev = () =>

@@ -3,18 +3,18 @@ import React, { useEffect, useState, useMemo } from "react";
 import { useParams, Link } from "react-router-dom";
 import { Api_Base_Url } from "../../Config/Api";
 
-// ⬅️ NEW: simple in-memory cache (per-tab)
+
 let SCHOOL_DATA_CACHE = null;
 
 const EventsDetails = () => {
   const { id } = useParams();
 
-  // ⬅️ CHANGED: seed from cache to avoid spinner on return
+
   const [schoolData, setSchoolData] = useState(SCHOOL_DATA_CACHE);
   const [loading, setLoading] = useState(!SCHOOL_DATA_CACHE);
   const [error, setError] = useState(null);
 
-  // lightbox & show-all state (unchanged)
+
   const [showAll, setShowAll] = useState(false);
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const [currentIdx, setCurrentIdx] = useState(0);
@@ -23,7 +23,7 @@ const EventsDetails = () => {
 
   useEffect(() => {
     const load = async () => {
-      // ⬅️ NEW: prevent refetch if we already cached it
+
       if (SCHOOL_DATA_CACHE) return;
 
       try {
@@ -31,7 +31,7 @@ const EventsDetails = () => {
         if (!res.ok) throw new Error("Failed to fetch school data");
         const data = await res.json();
 
-        // ⬅️ NEW: store in cache + state
+
         SCHOOL_DATA_CACHE = data;
         setSchoolData(data);
       } catch (e) {
@@ -43,7 +43,7 @@ const EventsDetails = () => {
     load();
   }, []);
 
-  // pick the event by id
+
   const eventItem = useMemo(() => {
     const all = schoolData?.events || [];
     return all.find((e) => e.id === Number(id));

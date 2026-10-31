@@ -4,7 +4,6 @@ import image2 from "/Images/12.jpg";
 import image3 from "/Images/17.jpg";
 import image4 from "/Images/45.jpg";
 
-/* ---------- Reusable Counter ---------- */
 const CountUp = ({
   end,
   duration = 4500,
@@ -50,7 +49,7 @@ const CountUp = ({
 
   return <>{display}</>;
 };
-/* ------------------------------------- */
+
 
 const Stat = () => {
   const stats = [
@@ -88,7 +87,7 @@ const Stat = () => {
   return (
     <div className="bg-blue-950 text-white">
       <div className=" -mt-1.5 px-4 py-6 xl:px-30 mx-auto max-w-7xl">
-      {/* ✅ Added divide-x for vertical lines */}
+
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 items-center justify-center mb-0 divide-x divide-white/50">
         {stats.map((stat, index) => (
           <div

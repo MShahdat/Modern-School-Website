@@ -2,7 +2,6 @@
 import React, { useEffect, useMemo, useState } from "react";
 import { Api_Base_Url } from "../../Config/Api";
 
-/* 🔵 Per-tab cache */
 let cachedSchoolData = null;
 let schoolDataPromise = null;
 
@@ -40,7 +39,7 @@ const TuitionFee = () => {
       .finally(() => setLoading(false));
   }, []);
 
-  // pick the latest published tuition_fees item
+
   const feeEntry = useMemo(() => {
     const list = Array.isArray(schoolData?.tuition_fees)
       ? [...schoolData.tuition_fees]
@@ -53,7 +52,6 @@ const TuitionFee = () => {
     return pool[0] || null;
   }, [schoolData]);
 
-  // Parse the HTML table from API
   const { headers, rows } = useMemo(() => {
     if (!feeEntry?.description) return { headers: [], rows: [] };
     try {
@@ -74,7 +72,6 @@ const TuitionFee = () => {
   }, [feeEntry]);
 
   if (loading) {
-    // 🔵 shimmer loader
     const fakeRows = Array.from({ length: 5 });
     const fakeCols = Array.from({ length: 3 });
     return (

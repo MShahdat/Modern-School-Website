@@ -3,7 +3,6 @@ import React, { useEffect, useMemo, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { Api_Base_Url } from "../../Config/Api";
 
-/* 🔵 Per-tab cache & deduped promise (same as Notice.jsx) */
 let cachedSchoolData = null;
 let schoolDataPromise = null;
 
@@ -12,7 +11,7 @@ const Notices = () => {
   const [loading, setLoading] = useState(!cachedSchoolData);
   const [error, setError] = useState(null);
 
-  // ✅ Fetch EXACTLY like Notice.jsx
+
   useEffect(() => {
     if (cachedSchoolData) return;
 
@@ -42,7 +41,7 @@ const Notices = () => {
       .finally(() => setLoading(false));
   }, []);
 
-  // 🔎 Normalize, sort (newest → oldest) and LIMIT to 6 items
+
   const displayNotices = useMemo(() => {
     const list = schoolData?.notices || [];
     return list
@@ -56,12 +55,12 @@ const Notices = () => {
       .slice(0, 6);
   }, [schoolData]);
 
-  /** ── Marquee setup ── */
+
   const trackRef = useRef(null);
   const scrollerRef = useRef(null);
   const [durationSec, setDurationSec] = useState(40);
 
-  // adjust speed to content length (seamless loop with duplication)
+
   useEffect(() => {
     const t = setTimeout(() => {
       const track = trackRef.current;
@@ -75,12 +74,12 @@ const Notices = () => {
     return () => clearTimeout(t);
   }, [displayNotices.length]);
 
-  // 🔹 consistent bullet utility
+
   const Bullet = () => (
     <span aria-hidden className="mx-5 inline-block h-2 w-2  rounded-full bg-white" />
   );
 
-  // 🔹 render a single item, optionally forcing a leading bullet
+
   const renderItem = (n, idx, forceLeadingBullet = false) => (
     <span key={n.id ?? `${n.title}-${idx}`} className="inline-flex items-center text-white/95">
       {(idx !== 0 || forceLeadingBullet) && <Bullet />}
@@ -96,7 +95,7 @@ const Notices = () => {
 
   return (
     <section className="w-full bg-black">
-      {/* Design: LatestNotice look, marquee functionality */}
+  
       <style>{`
         @keyframes notice-marquee-x {
           0%   { transform: translateX(0); }
@@ -105,12 +104,12 @@ const Notices = () => {
       `}</style>
 
       <div className="max-w-7xl mx-auto flex items-stretch">
-        {/* Left label (white box) */}
+       
         <div className="bg-white px-2 sm:px-4 py-2 flex items-center shrink-0">
           <span className="text-sm text-black/70 sm:text-[16px] font-bold">Latest Notice</span>
         </div>
 
-        {/* Scroller rail */}
+       
         <div
           ref={scrollerRef}
           className="relative overflow-hidden flex-1 h-[44px] flex items-center"
@@ -133,14 +132,12 @@ const Notices = () => {
                 animation: `notice-marquee-x ${durationSec}s linear infinite`,
               }}
             >
-              {/* A bullet right after the label to match the screenshot */}
+             
               <Bullet />
 
               {/* pass 1 */}
               {displayNotices.map((n, i) => renderItem(n, i))}
 
-              {/* pass 2 (duplicate) — force a bullet before the first duplicate
-                  so the separator between the last & first is ALWAYS present */}
               {displayNotices.map((n, i) => renderItem(n, i, i === 0))}
             </div>
           )}

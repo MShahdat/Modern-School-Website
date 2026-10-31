@@ -2,7 +2,7 @@
 import React, { useEffect, useMemo, useState } from "react";
 import { Api_Base_Url } from "../../Config/Api";
 
-/* 🔵 Per-tab cache (same pattern you use elsewhere) */
+/* Per-tab cache (same pattern you use elsewhere) */
 let cachedSchoolData = null;
 let schoolDataPromise = null;
 
@@ -40,7 +40,6 @@ const Schedule = () => {
       .finally(() => setLoading(false));
   }, []);
 
-  // pick the latest published tuition_fees item (fallback: first)
   const feeEntry = useMemo(() => {
     const list = Array.isArray(schoolData?.tuition_fees)
       ? [...schoolData.tuition_fees]

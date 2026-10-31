@@ -1,6 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
 
-/* ---------- Reusable Counter ---------- */
 const CountUp = ({
   end,
   duration = 5500,
@@ -46,7 +45,6 @@ const CountUp = ({
   return <>{display}</>;
 };
 
-/* ---------- Student Statistics ---------- */
 const StudentStatistics = () => {
   const cardRefs = useRef([]);
   const [visible, setVisible] = useState([]);
@@ -60,7 +58,7 @@ const StudentStatistics = () => {
     { number: '240+', label: 'Ten (Old)' },
   ];
 
-  // parse "350+" -> { end: 350, suffix: "+" }
+
   const parsed = stats.map((s) => {
     const m = String(s.number).match(/^(\d+)(.*)$/);
     return {
@@ -80,7 +78,7 @@ const StudentStatistics = () => {
             const idx = Number(entry.target.getAttribute('data-idx'));
             setVisible((prev) => {
               const next = prev.slice();
-              next[idx] = true; // mount CountUp once visible
+              next[idx] = true; 
               return next;
             });
             io.unobserve(entry.target);
@@ -116,7 +114,7 @@ const StudentStatistics = () => {
               {visible[index] ? (
                 <CountUp
                   end={parsed[index].end}
-                  duration={1500 + index * 150} // slight stagger
+                  duration={1500 + index * 150}
                   suffix={parsed[index].suffix}
                 />
               ) : (

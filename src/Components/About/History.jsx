@@ -4,8 +4,8 @@ import { Api_Base_Url } from "../../Config/Api";
 let cachedSchoolData = null;
 let schoolDataPromise = null;
 const History = () => {
-  const [schoolData, setSchoolData] = useState(cachedSchoolData);   // 🔵 init from cache
-  const [loading, setLoading] = useState(!cachedSchoolData);        // 🔵 skip loader if cached
+  const [schoolData, setSchoolData] = useState(cachedSchoolData);   // init from cache
+  const [loading, setLoading] = useState(!cachedSchoolData);        // skip loader if cached
   const [error, setError] = useState(null);
   
   useEffect(() => {
@@ -20,7 +20,7 @@ const History = () => {
           return res.json();
         })
         .then((data) => {
-          cachedSchoolData = data; // 🔵 cache once
+          cachedSchoolData = data; // cache once
           return data;
         })
         .catch((err) => { throw err; })
@@ -99,7 +99,6 @@ const History = () => {
             </div>
           </div>
 
-          {/* Right: Multiple Overlapping Circular Images */}
           <div className=" sticky top-36 rounded-3xl flex items-center justify-center">
             {/* Image 1 (center/top, on top layer) */}
             {loading ? (

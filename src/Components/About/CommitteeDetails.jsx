@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import { Api_Base_Url } from "../../Config/Api";
 
-/* 🔵 per-tab cache (persists until hard refresh) */
+/*  per-tab cache (persists until hard refresh) */
 let cachedSchoolData = null;
 let schoolDataPromise = null;
 
@@ -11,8 +11,8 @@ const CommitteeDetails = () => {
   const { id } = useParams();                 // /committee/:id
   const memberId = Number(id);
 
-  const [schoolData, setSchoolData] = useState(cachedSchoolData);  // 🔵 init from cache
-  const [loading, setLoading] = useState(!cachedSchoolData);       // 🔵 skip loader if cached
+  const [schoolData, setSchoolData] = useState(cachedSchoolData);  // init from cache
+  const [loading, setLoading] = useState(!cachedSchoolData);       // skip loader if cached
   const [error, setError] = useState(null);
 
   useEffect(() => {
@@ -28,7 +28,7 @@ const CommitteeDetails = () => {
           return res.json();
         })
         .then((data) => {
-          cachedSchoolData = data;   // 🔵 cache once
+          cachedSchoolData = data;   // cache once
           return data;
         })
         .catch((err) => { throw err; })
@@ -45,7 +45,6 @@ const CommitteeDetails = () => {
   }, []);
 
   if (loading) {
-    // 🔵 SHIMMER: mirrors heading + card with left profile and right table
     return (
       <div className="bg-gray-50 min-h-screen p-8 dark:bg-black/80">
         <h3 className="text-4xl font-bold text-blue-900 text-center mb-4">
@@ -135,7 +134,6 @@ const CommitteeDetails = () => {
               alt={teacher.name}
               className="w-48 h-56 object-cover rounded-md border"
             />
-            {/* 🔵 allow HTML in name/role if needed (no layout change) */}
             <h2
               className="text-2xl font-bold mt-4 uppercase text-blue-950"
               dangerouslySetInnerHTML={{ __html: String(teacher.name ?? "") }}
@@ -215,7 +213,6 @@ const CommitteeDetails = () => {
           </div>
         </div>
 
-        {/* Back Button */}
         <div className="mt-8 text-center">
           <Link
             to="/committee"

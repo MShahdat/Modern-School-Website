@@ -10,7 +10,6 @@ const roleTitle = (role = "") => {
   return "Leadership";
 };
 
-// Arrow buttons (unchanged)
 const ArrowBtn = ({ direction = "prev", onClick, className = "", style = {} }) => {
   const sideStyle =
     direction === "prev" ? { left: "-12px", right: "auto" } : { right: "-12px", left: "auto" };
@@ -28,7 +27,7 @@ const ArrowBtn = ({ direction = "prev", onClick, className = "", style = {} }) =
 const PrevArrow = (props) => <ArrowBtn direction="prev" {...props} />;
 const NextArrow = (props) => <ArrowBtn direction="next" {...props} />;
 
-/* ---------- Shimmer (skeleton) while loading ---------- */
+
 const ShimmerSlide = () => (
   <div>
     <article className="relative bg-white border border-gray-200 rounded-2xl shadow-sm">
@@ -103,7 +102,6 @@ const Hero1 = () => {
 
   if (error) return <div className="text-center py-4 text-red-500">{error}</div>;
 
-  /* === SLIDER SETTINGS: remove slide motion & use fade (no left→right) === */
   const settings = {
     infinite: true,
     slidesToShow: 1,
@@ -121,7 +119,6 @@ const Hero1 = () => {
   return (
     <div className="dark:bg-black/80">
       <section className="bg-white dark:bg-black/80 -mt-0 max-w-7xl mx-auto">
-      {/* 🔹 Zoom animation styles (PowerPoint-like) */}
       <style>{`
         /* Apply a Ken Burns zoom-in on the active slide's photo */
         .slick-current .hero-zoom-img {
@@ -150,7 +147,6 @@ const Hero1 = () => {
                     <div className="lg:col-span-1">
                       <div className="flex flex-col items-center lg:items-start gap-4">
                         <div className="w-36 h-36 sm:w-48 sm:h-48 rounded-full bg-white shadow grid place-items-center overflow-hidden">
-                          {/* 🔹 Zoom is applied to this image when its slide is active */}
                           <img
                             src={leader?.photo}
                             alt={leader?.name}

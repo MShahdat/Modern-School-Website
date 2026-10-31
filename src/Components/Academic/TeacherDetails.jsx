@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { Api_Base_Url } from '../../Config/Api';
 
-/* 🔵 per-tab cache (persists until hard refresh) */
+/* per-tab cache (persists until hard refresh) */
 let cachedSchoolData = null;
 let schoolDataPromise = null;
 
@@ -11,15 +11,14 @@ const TeacherDetails = () => {
   const { id } = useParams();
   const teacherId = Number(id);
 
-  const [schoolData, setSchoolData] = useState(cachedSchoolData);  // 🔵 init from cache
-  const [loading, setLoading] = useState(!cachedSchoolData);       // 🔵 skip loader if cached
+  const [schoolData, setSchoolData] = useState(cachedSchoolData);  
+  const [loading, setLoading] = useState(!cachedSchoolData);      
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    // If cached already, don't fetch again
+
     if (cachedSchoolData) return;
 
-    // Deduplicate in-flight fetch across mounts
     if (!schoolDataPromise) {
       schoolDataPromise = fetch(`${Api_Base_Url}/`)
         .then((res) => {
@@ -27,7 +26,7 @@ const TeacherDetails = () => {
           return res.json();
         })
         .then((data) => {
-          cachedSchoolData = data;   // 🔵 cache once
+          cachedSchoolData = data;  
           return data;
         })
         .catch((err) => { throw err; })
@@ -44,7 +43,7 @@ const TeacherDetails = () => {
   }, []);
 
   if (loading) {
-    // 🔵 SHIMMER: mirrors heading + hr + details card (image, title, text, table rows, button)
+
     return (
       <div className="bg-gray-50 min-h-screen p-8">
         <div className="flex justify-center">
@@ -90,7 +89,6 @@ const TeacherDetails = () => {
     return <div className="text-center py-10">Teacher not found</div>;
   }
 
-  // Map API fields -> UI fields used in your existing markup
   const teacher = {
     photo: apiT.photo,
     name: apiT.name,
@@ -102,7 +100,6 @@ const TeacherDetails = () => {
     email: apiT.email ?? '—',
     contactNo: apiT.phone ?? '—',
     nationalIdNo: apiT.national_id ?? '—',
-    // Long text fields (may include HTML)
     qualificationHtml: apiT.qualification ?? '—',
     experience: apiT.experience ?? '—',
     interestHtml: apiT.interest ?? '—',
@@ -126,7 +123,7 @@ const TeacherDetails = () => {
               alt={teacher.name}
               className="w-48 h-56 object-cover rounded-md border"
             />
-            {/* 🔵 allow HTML in name/role if the API sends markup (no design change) */}
+          
             <h2
               className="text-xl md:text-2xl font-bold text-black/80 mt-4 uppercase"
               dangerouslySetInnerHTML={{ __html: String(teacher.name ?? '') }}
@@ -170,7 +167,7 @@ const TeacherDetails = () => {
                   <td className='text-black/80'>{teacher.nationalIdNo}</td>
                 </tr>
 
-                {/* 🔵 Use dangerouslySetInnerHTML for long text cells (no layout change) */}
+                
                 <tr className="border-b-2 border-gray-300 align-top">
                   <td className="py-3 font-bold text-gray-800">Qualification :</td>
                   <td
