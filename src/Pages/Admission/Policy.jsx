@@ -4,7 +4,7 @@ import Notices from '../../Components/Home/Notices';
 const Policy = () => {
     return (
         <div>
-            <Notices></Notices>
+            {/* <Notices></Notices> */}
             <Policy1></Policy1>
         </div>
     );

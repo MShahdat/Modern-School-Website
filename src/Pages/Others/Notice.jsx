@@ -1,4 +1,4 @@
-import React from 'react';
+
 import Notice1 from '../../Components/Others/Notice';
 
 const Notice = () => {

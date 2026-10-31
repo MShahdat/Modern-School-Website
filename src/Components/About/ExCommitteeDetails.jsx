@@ -1,6 +1,6 @@
 // src/Academic/TeacherDetails.jsx
 import React from 'react';
-import { useParams, Link } from 'react-router';
+import { useParams, Link } from 'react-router-dom';
 import { getExCommitteeById } from './EGValue';
 
 const ExCommitteeDetails = () => {

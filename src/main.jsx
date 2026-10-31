@@ -4,7 +4,7 @@ import './index.css'
 import {
   createBrowserRouter,
   RouterProvider,
-} from "react-router";
+} from "react-router-dom";
 import Home from './Pages/Home/Home.jsx';
 import AboutUs from './Pages/About/AboutUs.jsx';
 import Doner from './Pages/About/Doner.jsx';

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router';
+import { Link } from 'react-router-dom';
 import { FaChevronDown, FaBars, FaTimes } from 'react-icons/fa';
 import { IoIosSunny } from "react-icons/io";
 import { IoMoonSharp } from "react-icons/io5";
@@ -15,15 +15,15 @@ const Navbar = () => {
     localStorage.getItem('theme') || 'system'
   )
 
-const getThemeIcon = () => {
-  if (theme === "light") return <IoIosSunny className="text-[18px]" />
-  if (theme === "dark") return <IoMoonSharp className="text-[18px]" />
-  return <FiMonitor className="text-[18px]" /> // system
-};
-  
+  const getThemeIcon = () => {
+    if (theme === "light") return <IoIosSunny className="text-[18px]" />
+    if (theme === "dark") return <IoMoonSharp className="text-[18px]" />
+    return <FiMonitor className="text-[18px]" /> // system
+  };
+
   const option = [
     {
-      icon: <IoIosSunny className='text-[18px]'/>,
+      icon: <IoIosSunny className='text-[18px]' />,
       name: 'light',
       lavel: 'Light',
     },
@@ -33,7 +33,7 @@ const getThemeIcon = () => {
       lavel: "Dark",
     },
     {
-      icon: <FiMonitor className='text-[18px]'/>,
+      icon: <FiMonitor className='text-[18px]' />,
       name: 'system',
       lavel: 'System',
     }
@@ -82,8 +82,8 @@ const getThemeIcon = () => {
       to: '/about',
       children: [
         { label: 'About Us', to: '/about' },
-        { label: 'Founder & Doner List', to: '/founder&donor' },
-        { label: 'History', to: '/history' },
+        // { label: 'Founder & Doner List', to: '/founder&donor' },
+        // { label: 'History', to: '/history' },
         { label: 'Our Vision', to: '/our-vision' },
         { label: 'Campus Tour', to: '/campus-tour' },
         { label: 'Achievements', to: '/achievements' },
@@ -91,7 +91,7 @@ const getThemeIcon = () => {
         { label: 'Honerable Chairman', to: '/chairman' },
         { label: 'Governing Body', to: '/committee' },
         // { label: 'Ex-Governing Body', to: '/ex-committee'},
-        { label: 'Administrator', to: '/administrator' }
+        // { label: 'Administrator', to: '/administrator' }
       ],
     },
     {
@@ -146,16 +146,6 @@ const getThemeIcon = () => {
         { label: 'ICT Lab', to: '/ict-lab' },
         { label: 'Chemistry Lab', to: '/chemistry-lab' },
         { label: 'Co-Curricular Activity', to: '/co-curricular-activity' },
-      ],
-    },
-    {
-      key: 'result',
-      label: 'RESULT',
-      to: '/result',
-      children: [
-        // { label: 'Result', to: '/result' },
-        { label: 'Academic Result', to: '/academic-result' },
-        // { label: 'Evaluation', to: '/evaluation' },
       ],
     },
     {
@@ -297,7 +287,7 @@ const getThemeIcon = () => {
   );
 };
 
-// Dropdown for Mobile, only one open at a time, WITH HOVER!
+
 const MobileMenuDropdown = ({ item, onLinkClick, openMobileDropdown, setOpenMobileDropdown }) => {
   const isOpen = openMobileDropdown === item.key;
 

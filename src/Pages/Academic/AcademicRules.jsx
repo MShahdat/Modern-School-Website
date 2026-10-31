@@ -5,7 +5,7 @@ import Notices from '../../Components/Home/Notices';
 const AcademicRules = () => {
     return (
         <div>
-            <Notices></Notices>
+            {/* <Notices></Notices> */}
             <Rules></Rules>
         </div>
     );

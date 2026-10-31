@@ -1,7 +1,3 @@
-// src/Components/Others/NewsList.jsx
-import React, { useMemo, useState, useEffect } from "react";
-import { Link } from "react-router";
-import { Api_Base_Url } from "../../Config/Api";
 
 const getOrdinal = (n) => {
   const s = ["th", "st", "nd", "rd"], v = n % 100;
@@ -11,56 +7,7 @@ const getMonthShort = (d) =>
   d.toLocaleString("en-US", { month: "short" }).toUpperCase();
 
 const NewsList = () => {
-  const [schoolData, setSchoolData] = useState(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
-  const [offset, setOffset] = useState(0);
 
-
-  useEffect(() => {
-    fetch(`${Api_Base_Url}/`)
-      .then((res) => {
-        if (!res.ok) throw new Error("Failed to fetch school data");
-        return res.json();
-      })
-      .then((data) => {
-        setSchoolData(data);
-        setLoading(false);
-      })
-      .catch((err) => {
-        setError(err.message || "Failed to load school data.");
-        setLoading(false);
-      });
-  }, []);
-
-  // Normalize and choose items: if >=5 -> first 5, else -> all
-  const latestFive = useMemo(() => {
-    const all = (schoolData?.news || []).map((n) => ({
-      ...n,
-      date: n.created_at,
-    }));
-    return all.length >= 5 ? all.slice(0, 5) : all;
-  }, [schoolData]);
-
-  // Duplicate for infinite loop track
-  const loopItems = useMemo(() => [...latestFive, ...latestFive], [latestFive]);
-
-  const prev = () =>
-    setOffset((o) => (o === 0 ? latestFive.length - 1 : o - 1));
-  const next = () =>
-    setOffset((o) => (o === latestFive.length - 1 ? 0 : o + 1));
-
-  if (loading) {
-    return (
-      <div className="text-center py-4 text-gray-500">
-        Loading school information...
-      </div>
-    );
-  }
-
-  if (error) {
-    return <div className="text-center py-4 text-red-500">{error}</div>;
-  }
 
   return (
     <section className="px-4 py-8 sm:px-6 md:px-8 bg-gray-50 mx-auto max-w-7xl">

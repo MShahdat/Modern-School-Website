@@ -5,7 +5,7 @@ import Apply1 from '../../Components/Admission/Apply';
 const Apply = () => {
     return (
         <div>
-            <Notices></Notices>
+            {/* <Notices></Notices> */}
             <Apply1></Apply1>
         </div>
     );

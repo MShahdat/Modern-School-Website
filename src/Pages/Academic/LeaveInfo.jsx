@@ -2,7 +2,8 @@ import React from 'react';
 
 const LeaveInfo = () => {
     return (
-        <div>
+        <div >
+            <p className='text-center'>developing</p>
         </div>
     );
 };

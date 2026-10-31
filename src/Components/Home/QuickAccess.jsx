@@ -5,7 +5,7 @@ import { LuNotebookPen } from "react-icons/lu";
 import { FaArrowRightLong } from "react-icons/fa6";
 import { ImManWoman } from "react-icons/im";
 const QuickAccess = () => {
-  // 🔧 change this to whatever you want (e.g., 170, 180, 200, etc.)
+
   const DISC_SIZE = 120; // px
 
   const items = [
@@ -112,12 +112,11 @@ const QuickAccess = () => {
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-16 justify-items-center">
           {items.map((it, i) => (
             <div key={it.title} ref={(el) => (refs.current[i] = el)} className="qa-hidden">
-              {/* pass the disc size via CSS var so BOTH front/back follow it */}
+
               <div className="deck group" style={{ "--disc": `${DISC_SIZE}px` }}>
-                {/* BACK (stays put) */}
+
                 <div className="back bg-[#4f3892] rings">
                   <span className="ring-third" />
-                  {/* fill back disc 100% (no hardcoded 200px anymore) */}
                   <Link
                     to={it.to}
                     className="absolute inset-0 rounded-full inner-disc grid place-items-center
@@ -127,20 +126,18 @@ const QuickAccess = () => {
                   </Link>
                 </div>
 
-                {/* FRONT (same size, moves up on hover) */}
+
                 <div className="front">
                   <div className="front-content">{it.icon}</div>
                 </div>
               </div>
 
-              {/* Label below */}
               <div className="mt-2 text-center">
                 <Link
                   to={it.to}
                   className="inline-flex items-center gap-2 text-blue-900 dark:text-white font-bold tracking-wide"
                 >
                   <span className="uppercase">{it.title}</span>
-                  {/* <span aria-hidden><FaArrowRightLong /></span> */}
                 </Link>
               </div>
             </div>

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { EGValue } from './EGValue'; // Adjust the import path as necessary
-import { Link } from 'react-router';
+import { Link } from 'react-router-dom';
 
 const ExGoverning = () => {
   const [showAll, setShowAll] = useState(false);

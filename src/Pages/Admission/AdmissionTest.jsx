@@ -5,7 +5,7 @@ import Test from '../../Components/Admission/Test';
 const AdmissionTest = () => {
     return (
         <div>
-            <Notices></Notices>
+            {/* <Notices></Notices> */}
             <Test></Test>
         </div>
     );

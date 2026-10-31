@@ -1,4 +1,3 @@
-import React from 'react';
 
 const Tour = () => {
     return (
@@ -13,7 +12,7 @@ const Tour = () => {
                 {/* Map Section (unchanged) */}
                 <div className="mt-12">
                     <h2 className='text-2xl md:text-4xl font-bold text-center text-blue-900 mb-4 dark:text-white/90'>Campus Map</h2>
-                      <hr className='border-t border-2 border-black/30 dark:border-white/20 mt-2 mb-0' />
+                    <hr className='border-t border-2 border-black/30 dark:border-white/20 mt-2 mb-0' />
 
                     <div className="mt-8 w-full h-[400px] md:h-[450px] rounded-lg overflow-hidden shadow">
                         <iframe

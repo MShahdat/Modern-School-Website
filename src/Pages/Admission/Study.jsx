@@ -6,7 +6,7 @@ import Notices from '../../Components/Home/Notices';
 const Study = () => {
     return (
         <div>
-            <Notices></Notices>
+            {/* <Notices></Notices> */}
             <Study1></Study1>
         </div>
     );

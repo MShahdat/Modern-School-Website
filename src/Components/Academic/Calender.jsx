@@ -2,9 +2,6 @@
 import React, { useState, useEffect } from "react";
 import { Api_Base_Url } from "../../Config/Api";
 
-/* ──────────────────────────────────────────────────────────────
-   Date Helpers (fixed to handle API "YYYY-MM-DD")
-   ────────────────────────────────────────────────────────────── */
 function parseAPIDate(s) {
   if (!s) return null;
   const str = String(s).trim();
@@ -42,9 +39,7 @@ function formatDateDisplay(s) {
 //   return "unknown";
 // }
 
-/* ──────────────────────────────────────────────────────────────
-   Cache (per-tab)
-   ────────────────────────────────────────────────────────────── */
+
 let cachedSchoolData = null;
 let schoolDataPromise = null;
 
@@ -91,9 +86,7 @@ const Calendar = () => {
       .finally(() => setLoading(false));
   }, []);
 
-  /* ────────────────────────────────────────────────────────────
-     Derived list
-     ──────────────────────────────────────────────────────────── */
+
   const calendar = (schoolData?.academic_calendars ?? [])
     .filter((c) => c?.is_published !== false)
     .map((c) => ({
@@ -103,9 +96,6 @@ const Calendar = () => {
       content: c.description || "Academic schedule and events for the year.",
     }));
 
-  /* ────────────────────────────────────────────────────────────
-     Actions
-     ──────────────────────────────────────────────────────────── */
   const handleDownload = async (url, fallbackName = "file") => {
     try {
       if (!url) return;
@@ -137,9 +127,6 @@ const Calendar = () => {
     setPreview({ open: false, url: "", kind: "unknown", title: "", isBlob: false });
   };
 
-  /* ────────────────────────────────────────────────────────────
-     Loading shimmer
-     ──────────────────────────────────────────────────────────── */
   if (loading) {
     const placeholders = Array.from({ length: 2 });
     return (
@@ -175,9 +162,6 @@ const Calendar = () => {
     );
   }
 
-  /* ────────────────────────────────────────────────────────────
-     Render
-     ──────────────────────────────────────────────────────────── */
   return (
     <div className="bg-gray-50 dark:bg-black/80">
       <div className="max-w-7xl mx-auto p-8">

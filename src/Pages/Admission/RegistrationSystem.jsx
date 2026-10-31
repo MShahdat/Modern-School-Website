@@ -5,7 +5,7 @@ import Notices from '../../Components/Home/Notices';
 const RegistrationSystem = () => {
     return (
         <div>
-            <Notices></Notices>
+            {/* <Notices></Notices> */}
             <Registration></Registration>
         </div>
     );
